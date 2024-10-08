@@ -34,19 +34,36 @@ namespace MoodSync.Services
 
         private List<string> FilterPlacesByMood(NearbyPlacesData nearbyPlaces, Mood mood)
         {
-            var filteredRecommendations = new List<string>();
+            var filterRecommendations = new List<string>();
 
             foreach (var place in nearbyPlaces.Results)
             {
                 if (IsPlaceSuitableForMood(place, mood))
                 {
-                    filteredRecommendations.Add($"{place.Name} - {place.Vicinity}");
+                    filterRecommendations.Add($"{place.Name} - {place.Vicinity}");
                 }
             }
-
-            return filteredRecommendations;
+            return filterRecommendations;
         }
 
+        private bool IsPlaceSuitableForMood(NearbyPlacesData.Place place, Mood mood)
+        {
+            switch (mood)
+            {
+                case Mood.Happy:
+                    return place.Name.Contains("park") || place.Name.Contains("garden") || place.Name.Contains("playground");
+                case Mood.Sad:
+                    return place.Name.Contains("cafe") || place.Name.Contains("restaurant") || place.Name.Contains("movie");
+                case Mood.Angry:
+                    return place.Name.Contains("gym") || place.Name.Contains("boxing") || place.Name.Contains("martial arts");
+                case Mood.Stressed:
+                    return place.Name.Contains("spa") || place.Name.Contains("massage") || place.Name.Contains("yoga");
+                case Mood.Relaxed:
+                    return place.Name.Contains("beach") || place.Name.Contains("lake") || place.Name.Contains("mountain");
+                default:
+                    return false;
+            }
+        }
     }
 }
 

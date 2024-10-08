@@ -1,4 +1,6 @@
-﻿@page "/weather"
+﻿@using MoodSync.Enums
+@using MoodSync.Services
+@* @page "/weather"
 @using MoodSync.Models
 @inject WeatherService WeatherService
 @using MoodSync.Services
@@ -54,5 +56,52 @@
             // === Use coordinates to get nearby places ===
             nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(coordinates.Latitude, coordinates.Longitude);
         }
+    }
+} *@
+
+
+@inject IWeatherService WeatherService
+@inject ILocationService LocationService
+@inject RecommendationService RecommendationService
+
+<h1>Personalized Recommendations</h1>
+
+<!-- Mood Input -->
+<p>How are you feeling today?</p>
+<select @bind="selectedMood">
+    <option value="Happy">Happy</option>
+    <option value="Sad">Sad</option>
+    <option value="Stressed">Stressed</option>
+    <option value="Relaxed">Relaxed</option>
+    <option value="Angry">Angry</option>
+</select>
+
+<!-- Location Input -->
+<p>Enter your location:</p>
+<input @bind="location" placeholder="Enter a city or town" />
+
+<!-- Get recommendations button -->
+<button @onclick="GetRecommendations">Get Recommendations</button>
+
+@if (recommendations != null)
+{
+    <h3>Recommendations for you:</h3>
+    <ul>
+        @foreach (var recommendation in recommendations)
+        {
+            <li>@recommendation</li>
+        }
+    </ul>
+}
+
+@code {
+    private Mood selectedMood = Mood.Happy;
+    private string location = "";
+    private List<string> recommendations;
+
+    private async Task GetRecommendations()
+    {
+        // Fetch recommendations based on mood and location
+        recommendations = await RecommendationService.GetRecommendationsAsync(location, selectedMood);
     }
 }
