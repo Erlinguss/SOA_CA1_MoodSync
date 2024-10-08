@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using MoodSync.Models;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace MoodSync.Services
 {
@@ -15,9 +13,9 @@ namespace MoodSync.Services
             _httpClient = httpClient;
         }
 
-        public async Task<LocationData> GetCoordinatesAsync(string locationName)
+        public async Task<LocationData> GetCoordinatesAsync(string location)
         {
-            var url = $"https://maps.googleapis.com/maps/api/geocode/json?address={locationName}&key={_apiKey}";
+            var url = $"https://maps.googleapis.com/maps/api/geocode/json?address={location}&key={_apiKey}";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
