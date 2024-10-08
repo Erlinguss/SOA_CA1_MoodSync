@@ -15,9 +15,10 @@ namespace MoodSync.Components.Services
             _httpClient = httpClient;
         }
 
-        public async Task<string> GetLocation(string location)
+        public async Task<string> GetLocation(double latitude, double longitude)
         {
-            var url = $"https://maps.googleapis.com/maps/api/geocode/json?address={location}&key={_apiKey}";
+            var url = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={latitude},{longitude}&radius=5000&key={_apiKey}";
+
 
             var response = await _httpClient.GetAsync(url);
 
