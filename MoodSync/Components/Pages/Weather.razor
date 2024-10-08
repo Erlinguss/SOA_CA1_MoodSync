@@ -2,33 +2,57 @@
 @using MoodSync.Models
 @inject WeatherService WeatherService
 @using MoodSync.Services
+@inject IWeatherService WeatherService
+@inject ILocationService LocationService
+@inject GeocodingService GeocodingService
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
+<h1>Weather and Nearby Places</h1>
 
-<p>This component demonstrates showing data.</p>
+<p>Enter a location:</p>
+<input @bind="location" placeholder="Enter a city" />
 
-<h3>Weather Information</h3>
-
-<input @bind="location" placeholder="Enter location" />
-<button @onclick="GetWeather">Get Weather</button>
+<button @onclick="GetWeatherAndNearbyPlaces">Get Weather and Nearby Places</button>
 
 @if (weatherData != null)
 {
-    <p>City: @weatherData.City</p>
+    <h3>Weather in @location:</h3>
     <p>Temperature: @weatherData.Main.Temperature °C</p>
     <p>Humidity: @weatherData.Main.Humidity%</p>
     <p>Wind Speed: @weatherData.Wind.Speed m/s</p>
     <p>Description: @weatherData.Weather[0].Description</p>
 }
 
-@code {
-    private string location;
-    private WeatherData weatherData;
+@if (nearbyPlacesData != null)
+{
+    <h3>Nearby Places in @location:</h3>
+    <ul>
+        @foreach (var place in nearbyPlacesData.Results)
+        {
+            <li>@place.Name - @place.Vicinity</li>
+        }
+    </ul>
+}
 
-    private async Task GetWeather()
+@code {
+    private string location = "";
+    private WeatherData weatherData;
+    private NearbyPlacesData nearbyPlacesData;
+
+    private async Task GetWeatherAndNearbyPlaces()
     {
+        // Get weather data
         weatherData = await WeatherService.GetWeatherAsync(location);
+
+        // Get geocoded coordinates latitude and longitude
+        var geocodeData = await GeocodingService.GetCoordinatesAsync(location);
+        if (geocodeData != null && geocodeData.Results.Count > 0)
+        {
+            var coordinates = geocodeData.Results[0].Geometry.Location;
+
+            // Use coordinates to get nearby places
+            nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(coordinates.Latitude, coordinates.Longitude);
+        }
     }
 }

@@ -9,8 +9,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 // Register WeatherService for dependency injection
-builder.Services.AddScoped<WeatherService>();
-
+//builder.Services.AddScoped<WeatherService>();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<GeocodingService>();
 // Registers HttpClient for use in WeatherService
 builder.Services.AddHttpClient();
 

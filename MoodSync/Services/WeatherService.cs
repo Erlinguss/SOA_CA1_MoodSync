@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace MoodSync.Services
 {
-    public class WeatherService
+    public class WeatherService : IWeatherService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey = "dd991d8d30b152dd4933258672b85628";

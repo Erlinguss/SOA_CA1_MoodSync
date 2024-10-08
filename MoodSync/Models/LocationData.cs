@@ -1,10 +1,17 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace MoodSync.Models
 {
     public class LocationData
     {
+        [JsonProperty("results")]
+        public List<Result> Results { get; set; }
+
+        public class Result
+        {
+            [JsonProperty("geometry")]
+            public Geometry Geometry { get; set; }
+        }
         public class Geometry
         {
             [JsonProperty("location")]
