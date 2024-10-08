@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
 using MoodSync.Models;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace MoodSync.Services
 {

@@ -42,16 +42,16 @@
 
     private async Task GetWeatherAndNearbyPlaces()
     {
-        // Get weather data
+        // === Get weather data ===
         weatherData = await WeatherService.GetWeatherAsync(location);
 
-        // Get geocoded coordinates latitude and longitude
+        // === Get geocoded coordinates latitude and longitude ===
         var geocodeData = await GeocodingService.GetCoordinatesAsync(location);
         if (geocodeData != null && geocodeData.Results.Count > 0)
         {
             var coordinates = geocodeData.Results[0].Geometry.Location;
 
-            // Use coordinates to get nearby places
+            // === Use coordinates to get nearby places ===
             nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(coordinates.Latitude, coordinates.Longitude);
         }
     }

@@ -2,5 +2,6 @@
 
 public interface ILocationService
 {
-   Task<NearbyPlacesData> GetNearbyPlacesAsync(double latitude, double longitude);
+    Task<LocationData> GetCoordinatesAsync(string location);
+    Task<NearbyPlacesData> GetNearbyPlacesAsync(double latitude, double longitude);
 }
