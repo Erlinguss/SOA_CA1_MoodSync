@@ -1,6 +1,6 @@
 using MoodSync.Components;
 using MoodSync;
-using MoodSync.Components.Services; 
+using MoodSync.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

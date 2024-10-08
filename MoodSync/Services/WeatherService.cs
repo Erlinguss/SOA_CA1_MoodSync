@@ -3,7 +3,7 @@ using MoodSync.Models;
 using Newtonsoft.Json;
 
 
-namespace MoodSync.Components.Services
+namespace MoodSync.Services
 {
     public class WeatherService
     {
@@ -18,7 +18,7 @@ namespace MoodSync.Components.Services
         public async Task<WeatherData> GetWeatherAsync(string location)
         {
             var url = $"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={_apiKey}&units=metric";
-       
+
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
