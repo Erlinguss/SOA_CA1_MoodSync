@@ -14,6 +14,9 @@ namespace MoodSync.Models
 
             [JsonProperty("vicinity")]
             public string Vicinity { get; set; }
+
+            [JsonProperty("types")]
+            public List<string> Types { get; set; }
         }
     }
 }

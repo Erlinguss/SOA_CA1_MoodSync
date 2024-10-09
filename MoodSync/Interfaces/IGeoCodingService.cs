@@ -4,7 +4,7 @@ namespace MoodSync.Interfaces
 {
     public interface IGeoCodingService
     {
-        Task<LocationData> GetCoordinatesAsync(string locationName);  
+        Task<LocationData> GetCoordinatesAsync(string locationName);
 
     }
 }

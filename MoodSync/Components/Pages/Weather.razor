@@ -19,10 +19,13 @@
     <option value="Angry">Angry</option>
 </select>
 
+
 <p>Enter your location:</p>
 <input @bind="location" placeholder="Enter a city or town" />
 
-<button @onclick="GetRecommendations">Get Recommendations</button>
+
+<button @onclick="GetRecommendations" disabled="@(string.IsNullOrEmpty(location) || selectedMood == null)">Get Recommendations</button>
+
 
 @if (weatherData != null)
 {
@@ -41,16 +44,22 @@
         }
     </ul>
 }
+<div id="map" style="width: 100%; height: 400px;"></div>
+
 
 @code {
-    private Mood selectedMood = Mood.Happy;
+    private Mood? selectedMood = null;
     private string location = "";
     private List<string> recommendations;
     private WeatherData weatherData;
 
     private async Task GetRecommendations()
     {
-        recommendations = await RecommendationService.GetRecommendationsAsync(location, selectedMood);
-        weatherData = await WeatherService.GetWeatherAsync(location);
+        if (selectedMood != null && !string.IsNullOrEmpty(location))
+        {
+            recommendations = await RecommendationService.GetRecommendationsAsync(location, (Mood)selectedMood);
+            weatherData = await WeatherService.GetWeatherAsync(location);
+        }
     }
 }
+

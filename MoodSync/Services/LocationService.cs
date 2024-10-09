@@ -15,7 +15,7 @@ namespace MoodSync.Services
 
         public async Task<NearbyPlacesData> GetNearbyPlacesAsync(double latitude, double longitude)
         {
-            var url = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={latitude},{longitude}&radius=5000&key={_apiKey}";
+            var url = $"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={latitude},{longitude}&radius=50000&key={_apiKey}";
 
             var response = await _httpClient.GetAsync(url);
             if (response.IsSuccessStatusCode)
