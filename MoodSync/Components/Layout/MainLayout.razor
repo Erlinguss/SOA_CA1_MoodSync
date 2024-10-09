@@ -1,9 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <div class="sidebar">
+    @* <div class="sidebar">
         <NavMenu />
-    </div>
+    </div> *@
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U&callback=initMap">
+    </script>
+    <script src="googleMap.js"></script>
 
     <main>
         <div class="top-row px-4">
