@@ -1,4 +1,5 @@
 ﻿using MoodSync.Enums;
+using MoodSync.Interfaces;
 using MoodSync.Models;
 
 namespace MoodSync.Services
@@ -7,18 +8,20 @@ namespace MoodSync.Services
     {
         private readonly IWeatherService _weatherService;
         private readonly ILocationService _locationService;
+        private readonly IGeoCodingService _geocodingService;
 
-        public RecommendationService(IWeatherService weatherService, ILocationService locationService)
+        public RecommendationService(IWeatherService weatherService, ILocationService locationService, IGeoCodingService geocodingService)
         {
             _weatherService = weatherService;
             _locationService = locationService;
+            _geocodingService = geocodingService;
         }
 
         public async Task<List<string>> GetRecommendationsAsync(string location, Mood mood)
         {
             var weatherData = await _weatherService.GetWeatherAsync(location);
 
-            var geocodeData = await _locationService.GetCoordinatesAsync(location);
+            var geocodeData = await _geocodingService.GetCoordinatesAsync(location);
 
             if (geocodeData != null && geocodeData.Results.Count > 0)
             {
