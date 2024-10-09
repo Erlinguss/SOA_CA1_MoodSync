@@ -4,8 +4,8 @@
     {
         Happy,
         Sad,
-        Angry,
         Stressed,
-        Relaxed
+        Relaxed,
+        Angry
     }
 }
