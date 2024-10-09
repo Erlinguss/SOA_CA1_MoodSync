@@ -16,6 +16,39 @@ a, .btn-link {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+header {
+    background: linear-gradient(to right, #8e44ad, #9b59b6); 
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1300px; 
+
+}
+
+.logo-small {
+    width: 160px;
+    height: auto;
+}
+
+.link-container {
+    display: flex;
+    gap: 30px;
+    padding-top: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white; 
+    font-size: 16px;
+}
+
+    .nav-link:hover {
+        color: #e1e1e1; 
+    }
+
+
 .content {
     padding-top: 1.1rem;
 }

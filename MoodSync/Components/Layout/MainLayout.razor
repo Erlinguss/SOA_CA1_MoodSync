@@ -1,20 +1,25 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    @* <div class="sidebar">
-        <NavMenu />
-    </div> *@
+    <link rel="stylesheet" href="app.css" />
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U&callback=initMap">
     </script>
     <script src="googleMap.js"></script>
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+        <header>
+            <div class="logo-container">
+                <img src="MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
 
-        <article class="content px-4">
+                <div class="link-container">
+                    <a href="/about-us" class="nav-link">About Us</a>
+                    <a href="/login" class="nav-link">Log In</a>
+                </div>
+            </div>
+        </header>
+
+        <article >
             @Body
 
         </article>
