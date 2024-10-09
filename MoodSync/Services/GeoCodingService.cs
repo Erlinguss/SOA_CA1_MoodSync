@@ -4,12 +4,12 @@ using MoodSync.Interfaces;
 
 namespace MoodSync.Services
 {
-    public class GeocodingService : IGeoCodingService
+    public class GeoCodingService : IGeoCodingService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey = "AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U";
 
-        public GeocodingService(HttpClient httpClient)
+        public GeoCodingService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

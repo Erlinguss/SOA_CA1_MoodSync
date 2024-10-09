@@ -1,72 +1,15 @@
 ﻿@using MoodSync.Enums
-@using MoodSync.Services
-@* @page "/weather"
+@using MoodSync.Interfaces
 @using MoodSync.Models
-@inject WeatherService WeatherService
 @using MoodSync.Services
+@page "/weather"
 @inject IWeatherService WeatherService
 @inject ILocationService LocationService
-@inject GeocodingService GeocodingService
-
-<PageTitle>Weather</PageTitle>
-
-<h1>Weather and Nearby Places</h1>
-
-<p>Enter a location:</p>
-<input @bind="location" placeholder="Enter a city" />
-
-<button @onclick="GetWeatherAndNearbyPlaces">Get Weather and Nearby Places</button>
-
-@if (weatherData != null)
-{
-    <h3>Weather in @location:</h3>
-    <p>Temperature: @weatherData.Main.Temperature °C</p>
-    <p>Humidity: @weatherData.Main.Humidity%</p>
-    <p>Wind Speed: @weatherData.Wind.Speed m/s</p>
-    <p>Description: @weatherData.Weather[0].Description</p>
-}
-
-@if (nearbyPlacesData != null)
-{
-    <h3>Nearby Places in @location:</h3>
-    <ul>
-        @foreach (var place in nearbyPlacesData.Results)
-        {
-            <li>@place.Name - @place.Vicinity</li>
-        }
-    </ul>
-}
-
-@code {
-    private string location = "";
-    private WeatherData weatherData;
-    private NearbyPlacesData nearbyPlacesData;
-
-    private async Task GetWeatherAndNearbyPlaces()
-    {
-        // === Get weather data ===
-        weatherData = await WeatherService.GetWeatherAsync(location);
-
-        // === Get geocoded coordinates latitude and longitude ===
-        var geocodeData = await GeocodingService.GetCoordinatesAsync(location);
-        if (geocodeData != null && geocodeData.Results.Count > 0)
-        {
-            var coordinates = geocodeData.Results[0].Geometry.Location;
-
-            // === Use coordinates to get nearby places ===
-            nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(coordinates.Latitude, coordinates.Longitude);
-        }
-    }
-} *@
-
-
-@inject IWeatherService WeatherService
-@inject ILocationService LocationService
+@inject IGeoCodingService GeoCodingService
 @inject RecommendationService RecommendationService
 
 <h1>Personalized Recommendations</h1>
 
-<!-- Mood Input -->
 <p>How are you feeling today?</p>
 <select @bind="selectedMood">
     <option value="Happy">Happy</option>
@@ -76,12 +19,17 @@
     <option value="Angry">Angry</option>
 </select>
 
-<!-- Location Input -->
 <p>Enter your location:</p>
 <input @bind="location" placeholder="Enter a city or town" />
 
-<!-- Get recommendations button -->
 <button @onclick="GetRecommendations">Get Recommendations</button>
+
+@if (weatherData != null)
+{
+    <h3>Weather in @location:</h3>
+    <p>Temperature: @weatherData.Main.Temperature °C</p>
+    <p>Description: @weatherData.Weather[0].Description</p>
+}
 
 @if (recommendations != null)
 {
@@ -98,10 +46,11 @@
     private Mood selectedMood = Mood.Happy;
     private string location = "";
     private List<string> recommendations;
+    private WeatherData weatherData;
 
     private async Task GetRecommendations()
     {
-        // Fetch recommendations based on mood and location
         recommendations = await RecommendationService.GetRecommendationsAsync(location, selectedMood);
+        weatherData = await WeatherService.GetWeatherAsync(location);
     }
 }

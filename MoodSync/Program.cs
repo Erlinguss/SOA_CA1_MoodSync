@@ -1,24 +1,22 @@
 using MoodSync.Components;
-using MoodSync;
 using MoodSync.Services;
+using MoodSync.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// Register WeatherService for dependency injection
-//builder.Services.AddScoped<WeatherService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
-builder.Services.AddScoped<GeocodingService>();
-// Registers HttpClient for use in WeatherService
+builder.Services.AddScoped<IGeoCodingService, GeoCodingService>();
+builder.Services.AddScoped<RecommendationService>();
+
+
 builder.Services.AddHttpClient();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
