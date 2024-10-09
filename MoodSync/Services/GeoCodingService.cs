@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using MoodSync.Models;
+using MoodSync.Interfaces;
 
 namespace MoodSync.Services
 {
-    public class GeocodingService
+    public class GeocodingService : IGeoCodingService
     {
         private readonly HttpClient _httpClient;
         private readonly string _apiKey = "AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U";
