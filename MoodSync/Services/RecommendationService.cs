@@ -64,6 +64,8 @@ namespace MoodSync.Services
 
             return filteredRecommendations;
         }
+
+
         private static readonly Dictionary<Mood, List<string>> moodPlaceTypes = new Dictionary<Mood, List<string>>
 {
     {
