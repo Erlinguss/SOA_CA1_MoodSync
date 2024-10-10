@@ -6,28 +6,37 @@
 @inject NavigationManager NavigationManager
 
 @code {
-    private UserCredentialsData newUser = new UserCredentialsData();
+    private User newUser = new User();  
     private string errorMessage;
 
     private async Task RegisterUser()
     {
-        var existingUser = await DbContext.Users
-            .FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
-
-        if (existingUser != null)
+        try
         {
-            errorMessage = "Username already exists!";
-            return;
+            var existingUser = await DbContext.Users
+                .FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
+
+            if (existingUser != null)
+            {
+                errorMessage = "Username already exists!";
+                return;
+            }
+
+            DbContext.Users.Add(newUser);
+            await DbContext.SaveChangesAsync();
+
+            NavigationManager.NavigateTo("/login");
         }
-
-        DbContext.Users.Add(newUser);
-        await DbContext.SaveChangesAsync();
-
-        NavigationManager.NavigateTo("/login");
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
     }
 }
+
 <div class="register-form">
     <h2>Register</h2>
+
     @if (!string.IsNullOrEmpty(errorMessage))
     {
         <div class="error-message">@errorMessage</div>

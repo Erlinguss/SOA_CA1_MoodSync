@@ -3,10 +3,11 @@
 @inject IJSRuntime JSRuntime
 
 @code {
-    protected override void OnInitialized()
+    private async Task LogoutUser()
     {
-        JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
-        JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+
         NavigationManager.NavigateTo("/");
     }
 }
