@@ -34,7 +34,7 @@ public class MoodService
         {
             Mood = selectedMood.ToString(),
             Location = location,
-           // Timestamp = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss"),
+            Timestamp = DateTime.Now,
             Recommendations = recommendations
         };
 

@@ -4,6 +4,7 @@
 @using MoodSync.Interfaces
 @using MoodSync.Models
 @using MoodSync.Services
+@using Newtonsoft.Json
 @inject IWeatherService WeatherService
 @inject ILocationService LocationService
 @inject IGeoCodingService GeoCodingService
@@ -12,7 +13,7 @@
 <section class="hero-section">
     <h1>Personalized Recommendations</h1>
     <p>Select your mood and location to get personalized recommendations based on the weather and nearby places.</p>
-</section> 
+</section>
 
 <section class="input-section">
     <label for="mood">How are you feeling today?</label>
@@ -30,6 +31,7 @@
 
 <section class="button-section">
     <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
+    <button @onclick="ViewHistory" class="primary-btn secondary-btn">View History</button>
 </section>
 
 @if (weatherData != null)
@@ -54,6 +56,24 @@
     </section>
 }
 
+@if (recommendationHistory != null)
+{
+    <section class="history-section">
+        <h3>Recommendation History</h3>
+        <ul class="history-list">
+            @foreach (var entry in recommendationHistory)
+            {
+                <li>
+                    <strong>Mood:</strong> @entry.Mood,
+                    <strong>Location:</strong> @entry.Location,
+                    <strong>Time:</strong> @entry.Timestamp.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    <strong>Recommendations:</strong> @string.Join(", ", entry.Recommendations)
+                </li>
+            }
+        </ul>
+    </section>
+}
+
 <div id="map" class="map-container"></div>
 
 @code {
@@ -61,6 +81,7 @@
     private string location = "";
     private List<string> recommendations;
     private WeatherData weatherData;
+    private List<MoodData> recommendationHistory;
 
     private async Task GetRecommendations()
     {
@@ -68,6 +89,15 @@
         {
             recommendations = await RecommendationService.GetRecommendationsAsync(location, (Mood)selectedMood);
             weatherData = await WeatherService.GetWeatherAsync(location);
+
+            var moodData = new MoodData
+                {
+                    Mood = selectedMood.ToString(),
+                    Location = location,
+                    Recommendations = recommendations,
+                    Timestamp = DateTime.Now
+                };
+            await SaveToFile(moodData);
 
             var geoData = await GeoCodingService.GetCoordinatesAsync(location);
             if (geoData != null && geoData.Results.Count > 0)
@@ -78,5 +108,41 @@
                 await JSRuntime.InvokeVoidAsync("setMapLocation", latitude, longitude);
             }
         }
-    } 
+    }
+
+    private async Task SaveToFile(MoodData moodData)
+    {
+        var fileName = "moodData.json";
+        var filePath = Path.Combine(Environment.CurrentDirectory, fileName);
+
+        List<MoodData> historyList;
+
+        if (File.Exists(filePath))
+        {
+            var jsonData = await File.ReadAllTextAsync(filePath);
+            historyList = JsonConvert.DeserializeObject<List<MoodData>>(jsonData) ?? new List<MoodData>();
+        }
+        else
+        {
+            historyList = new List<MoodData>();
+        }
+
+        historyList.Add(moodData);
+        var updatedData = JsonConvert.SerializeObject(historyList, Formatting.Indented);
+        await File.WriteAllTextAsync(filePath, updatedData);
+    }
+
+    private async Task ViewHistory()
+    {
+        var fileName = "moodData.json";
+        var filePath = Path.Combine(Environment.CurrentDirectory, fileName);
+
+        if (File.Exists(filePath))
+        {
+            var jsonData = await File.ReadAllTextAsync(filePath);
+            recommendationHistory = JsonConvert.DeserializeObject<List<MoodData>>(jsonData);
+        }
+    }
+}
+
 }
