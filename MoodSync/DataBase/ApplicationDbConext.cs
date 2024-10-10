@@ -9,7 +9,6 @@ namespace MoodSync.Data
             : base(options)
         {
         }
-
         public DbSet<UserCredentialsData> Users { get; set; }
     }
 }
