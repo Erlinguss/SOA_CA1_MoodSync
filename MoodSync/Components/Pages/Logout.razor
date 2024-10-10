@@ -1,0 +1,14 @@
+﻿@page "/logout"
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+@code {
+    protected override void OnInitialized()
+    {
+        JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
+        JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+        NavigationManager.NavigateTo("/");
+    }
+}
+
+<h3>You have been logged out</h3>

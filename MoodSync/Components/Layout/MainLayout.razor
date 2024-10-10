@@ -15,14 +15,9 @@
             </div>
             <div class="link-container">
                 <a href="/about-us" class="nav-link">About Us</a>
-                @if (isLoggedIn)
-                {
-                    <a href="/logout" class="nav-link">Log Out</a>
-                }
-                else
-                {
-                    <a href="/login" class="nav-link">Log In</a>
-                }
+            
+                    <a href="/Login" class="nav-link">Log In</a>
+                
             </div>
         </header>
 
@@ -31,26 +26,3 @@
         </article>
     </main>
 </div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
-
-@code {
-    private bool isLoggedIn = false;
-    private bool _firstRender = true;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            var loginStatus = await JSRuntime.InvokeAsync<string>("localStorage.getItem", new object[] { "isLoggedIn" });
-
-            isLoggedIn = !string.IsNullOrEmpty(loginStatus) && loginStatus == "true";
-
-            StateHasChanged();
-        }
-    }
-}
