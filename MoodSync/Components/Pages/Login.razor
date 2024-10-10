@@ -1,34 +1,44 @@
 ﻿@page "/login"
+@using Microsoft.EntityFrameworkCore
+@using MoodSync.Data
+@using MoodSync.Models
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
-@code {
-    private string username = "";
-    private string password = "";
+@inject ApplicationDbContext DbContext
 
-    private void HandleLogin()
+@code {
+    private User loginUser = new User();
+    private string errorMessage;
+
+    private async Task LoginUser()
     {
-        if (username == "testuser" && password == "password123")
+        var existingUser = await DbContext.Users
+            .FirstOrDefaultAsync(u => u.UserName == loginUser.UserName);
+
+        if (existingUser == null)
         {
-            JSRuntime.InvokeVoidAsync("localStorage.setItem", "isLoggedIn", "true");
-            JSRuntime.InvokeVoidAsync("localStorage.setItem", "username", username);
-            NavigationManager.NavigateTo("/");
+            errorMessage = "Invalid username or password!";
+            return;
         }
-        else
-        {
-            JSRuntime.InvokeVoidAsync("alert", "Invalid credentials!");
-        }
+
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "isLoggedIn", "true");
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "username", loginUser.UserName);
+
+        NavigationManager.NavigateTo("/");
     }
 }
 
-<h3>Login</h3>
-<div>
-    <label for="username">Username:</label>
-    <input @bind="username" type="text" placeholder="Enter username" />
+<div class="login-form">
+    <h2>Login</h2>
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="error-message">@errorMessage</div>
+    }
+
+    <input @bind="loginUser.UserName" placeholder="Username" />
+    <input @bind="loginUser.Password" type="text" placeholder="Password" />
+    <button @onclick="LoginUser">Login</button>
+
+    <p>Don't have an account? <a href="/register">Register here</a></p>
 </div>
 
-<div>
-    <label for="password">Password:</label>
-    <input @bind="password" type="password" placeholder="Enter password" />
-</div>
-
-<button @onclick="HandleLogin">Log In</button>

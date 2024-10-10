@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 
 <div class="page">
     <link rel="stylesheet" href="app.css" />
@@ -15,9 +16,15 @@
             </div>
             <div class="link-container">
                 <a href="/about-us" class="nav-link">About Us</a>
-            
-                    <a href="/Login" class="nav-link">Log In</a>
-                
+
+                @if (isLoggedIn)
+                {
+                    <a href="/logout" class="nav-link" @onclick="Logout">Log Out</a>
+                }
+                else
+                {
+                    <a href="/login" class="nav-link">Log In</a>
+                }
             </div>
         </header>
 
@@ -26,3 +33,27 @@
         </article>
     </main>
 </div>
+
+@code {
+    private bool isLoggedIn;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var loginStatus = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "isLoggedIn");
+            isLoggedIn = loginStatus == "true";
+
+            StateHasChanged(); 
+        }
+    }
+
+    private async Task Logout()
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
+        isLoggedIn = false;
+
+        NavigationManager.NavigateTo("/");
+        StateHasChanged();
+    }
+}
