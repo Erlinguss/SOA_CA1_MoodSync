@@ -1,12 +1,14 @@
 ﻿@page "/register"
 @using Microsoft.EntityFrameworkCore
+@using MoodSync.Components.Layout
 @using MoodSync.Data
 @using MoodSync.Models
 @inject ApplicationDbContext DbContext
 @inject NavigationManager NavigationManager
+@layout MainLayout
 
 @code {
-    private User newUser = new User();  
+    private User newUser = new User();
     private string errorMessage;
 
     private async Task RegisterUser()
@@ -34,7 +36,7 @@
     }
 }
 
-<div class="register-form">
+ <div class="register-form">
     <h2>Register</h2>
 
     @if (!string.IsNullOrEmpty(errorMessage))
