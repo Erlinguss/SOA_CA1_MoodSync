@@ -1,4 +1,4 @@
-html, body {
+html{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -16,15 +16,26 @@ a, .btn-link {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+}
+
 header {
-    background: linear-gradient(to right, #8e44ad, #9b59b6); 
+    background: linear-gradient(90deg, #8e44ad, #9b59b6);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .logo-container {
     display: flex;
-    justify-content: space-between;
-    max-width: 1300px; 
-
+    align-items: center;
 }
 
 .logo-small {
@@ -32,22 +43,84 @@ header {
     height: auto;
 }
 
-.link-container {
-    display: flex;
-    gap: 30px;
-    padding-top: 30px;
+.link-container a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-.nav-link {
-    text-decoration: none;
-    color: white; 
+.hero-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input, select {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     font-size: 16px;
 }
 
-    .nav-link:hover {
-        color: #e1e1e1; 
+.button-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button.primary-btn {
+    background-color: #6a1b9a;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    button.primary-btn:hover {
+        background-color: #5e17a3;
     }
 
+.weather-section, .recommendations-section {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .weather-section h3, .recommendations-section h3 {
+        color: #6a1b9a;
+    }
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
 .content {
     padding-top: 1.1rem;
