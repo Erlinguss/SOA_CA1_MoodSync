@@ -11,6 +11,7 @@ builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
 builder.Services.AddScoped<IGeoCodingService, GeoCodingService>();
 builder.Services.AddScoped<RecommendationService>();
+builder.Services.AddScoped<MoodService>();
 
 
 builder.Services.AddHttpClient();
