@@ -1,6 +1,8 @@
 ﻿@page "/logout"
+@using MoodSync.Components.Layout
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+@layout MainLayout
 
 @code {
     private async Task LogoutUser()

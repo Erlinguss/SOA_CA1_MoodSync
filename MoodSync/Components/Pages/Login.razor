@@ -1,10 +1,13 @@
 ﻿@page "/login"
 @using Microsoft.EntityFrameworkCore
+@using MoodSync.Components.Layout
 @using MoodSync.Data
 @using MoodSync.Models
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
 @inject ApplicationDbContext DbContext
+@inject LoginStateService LoginStateService
+@layout MainLayout
 
 @code {
     private User loginUser = new User();
@@ -21,10 +24,11 @@
             return;
         }
 
+        LoginStateService.Login();
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "isLoggedIn", "true");
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "username", loginUser.UserName);
 
-        NavigationManager.NavigateTo("/");
+        NavigationManager.NavigateTo("/dashboard");
     }
 }
 
@@ -36,9 +40,8 @@
     }
 
     <input @bind="loginUser.UserName" placeholder="Username" />
-    <input @bind="loginUser.Password" type="text" placeholder="Password" />
+    <input @bind="loginUser.Password" type="password" placeholder="Password" />
     <button @onclick="LoginUser">Login</button>
 
     <p>Don't have an account? <a href="/register">Register here</a></p>
-</div>
-
+</div> 
