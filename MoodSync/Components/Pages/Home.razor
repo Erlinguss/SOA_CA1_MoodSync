@@ -9,41 +9,52 @@
 @inject IGeoCodingService GeoCodingService
 @inject RecommendationService RecommendationService
 
-<h1>Personalized Recommendations</h1>
+<section class="hero-section">
+    <h1>Personalized Recommendations</h1>
+    <p>Select your mood and location to get personalized recommendations based on the weather and nearby places.</p>
+</section>
 
-<p>How are you feeling today?</p>
-<select @bind="selectedMood">
-    <option value="Happy">Happy</option>
-    <option value="Sad">Sad</option>
-    <option value="Stressed">Stressed</option>
-    <option value="Relaxed">Relaxed</option>
-    <option value="Angry">Angry</option>
-</select>
+<section class="input-section">
+    <label for="mood">How are you feeling today?</label>
+    <select id="mood" @bind="selectedMood" class="dropdown">
+        <option value="Happy">Happy</option>
+        <option value="Sad">Sad</option>
+        <option value="Stressed">Stressed</option>
+        <option value="Relaxed">Relaxed</option>
+        <option value="Angry">Angry</option>
+    </select>
 
-<p>Enter your location:</p>
-<input @bind="location" placeholder="Enter a city or town" />
+    <label for="location">Enter your location:</label>
+    <input id="location" @bind="location" placeholder="Enter a city or town" class="input-box" />
+</section>
 
-<button @onclick="GetRecommendations">Get Recommendations</button>
+<section class="button-section">
+    <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
+</section>
 
 @if (weatherData != null)
 {
-    <h3>Weather in @location:</h3>
-    <p>Temperature: @weatherData.Main.Temperature °C</p>
-    <p>Description: @weatherData.Weather[0].Description</p>
+    <section class="weather-section">
+        <h3>Weather in @location</h3>
+        <p>Temperature: @weatherData.Main.Temperature °C</p>
+        <p>Description: @weatherData.Weather[0].Description</p>
+    </section>
 }
 
 @if (recommendations != null)
 {
-    <h3>Recommendations for you:</h3>
-    <ul>
-        @foreach (var recommendation in recommendations)
-        {
-            <li>@recommendation</li>
-        }
-    </ul>
+    <section class="recommendations-section">
+        <h3>Recommendations for you:</h3>
+        <ul class="recommendation-list">
+            @foreach (var recommendation in recommendations)
+            {
+                <li>@recommendation</li>
+            }
+        </ul>
+    </section>
 }
 
-<div id="map" style="height: 400px; width: 100%;"></div>
+<div id="map" class="map-container"></div>
 
 @code {
     private Mood? selectedMood = null;
