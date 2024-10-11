@@ -49,13 +49,20 @@
 @if (weatherData != null)
 {
     <section class="weather-section">
-        <h3>Weather in @location</h3>
-        <p>Temperature: @weatherData.Main.Temperature °C</p>
-        <p>Description: @weatherData.Weather[0].Description</p>
+        <div class="weather-content">
+            <div class="weather-text">
+                <h3>Weather in @location</h3>
+                <p>Temperature: @weatherData.Main.Temperature °C</p>
+                <p>Description: @weatherData.Weather[0].Description</p>
+            </div>
+            <div class="weather-image">
+                <img src="weather.png" alt="Weather Icon" />
+            </div>
+        </div>
     </section>
 }
 
-@if (recommendations != null)
+ @if (recommendations != null)
 {
     <section class="recommendations-section">
         <h3>Recommendations for you:</h3>
@@ -67,6 +74,8 @@
         </ul>
     </section>
 }
+<div id="map" class="map-container"></div>
+
 
 @if (recommendationHistory != null)
 {
@@ -86,7 +95,7 @@
     </section>
 }
 
-<div id="map" class="map-container"></div>
+
 
 @code {
     private Mood? selectedMood = null;
