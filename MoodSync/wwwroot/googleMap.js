@@ -16,3 +16,4 @@ function setMapLocation(latitude, longitude) {
         map: map
     });
 }
+

@@ -33,12 +33,12 @@
 }
 
 <div class="login-form">
-    <h2>Login</h2>
     @if (!string.IsNullOrEmpty(errorMessage))
     {
         <div class="error-message">@errorMessage</div>
     }
-
+    <img src="MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
+    <h2>Login</h2>
     <input @bind="loginUser.UserName" placeholder="Username" />
     <input @bind="loginUser.Password" type="password" placeholder="Password" />
     <button @onclick="LoginUser">Login</button>
