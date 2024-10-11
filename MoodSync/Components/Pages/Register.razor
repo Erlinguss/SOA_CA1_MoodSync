@@ -36,6 +36,7 @@
     }
 }
 
+<div class="login-container">
  <div class="register-form">
     @if (!string.IsNullOrEmpty(errorMessage))
     {
@@ -48,4 +49,5 @@
     <input @bind="newUser.Password" type="password" placeholder="Password" />
     <input @bind="newUser.Email" placeholder="Email" />
     <button @onclick="RegisterUser">Register</button>
+</div>
 </div>

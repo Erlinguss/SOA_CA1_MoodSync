@@ -15,18 +15,17 @@ a, .btn-link {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
-
 .login-form, .register-form {
     width: 400px;
-    margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
     .login-form input, .register-form input {
-        width: 100%;
+        width: 80%;
         padding: 10px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
@@ -41,12 +40,28 @@ a, .btn-link {
         border-radius: 4px;
         cursor: pointer;
     }
+
+        .login-form button:hover, .register-form button:hover {
+            background-color: #0056b3;
+        }
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #f0f0f5;
     margin: 0;
     padding: 0;
+    display: block;
+    height: 100vh;
 }
+
 
 header {
     background: linear-gradient(90deg, #8e44ad, #9b59b6);
@@ -222,7 +237,7 @@ h1:focus {
 }
 
     .column img {
-        width: 250px; /* Fixed width for all images */
+        width: 250px; 
         height: 250px; 
         object-fit: cover; 
         margin-bottom: 15px;
