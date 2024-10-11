@@ -11,44 +11,9 @@
     <script src="googleMap.js"></script>
        
 <main>
-        <header>
-            <div class="logo-container">
-                <img src="MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
-            </div>
-            <div class="link-container">
-                <a href="/about-us" class="nav-link">About Us</a>
-
-                @if (LoginStateService.IsLoggedIn)
-                {
-                    <a href="/logout" class="nav-link" @onclick="Logout">Log Out</a>
-                }
-                else
-                {
-                    <a href="/login" class="nav-link">Log In</a>
-                }
-            </div>
-        </header>
-
         <article>
             @Body
         </article>
     </main>
 </div>
 
-@code {
-    protected override void OnInitialized()
-    {
-        LoginStateService.OnChange += StateHasChanged;
-    }
-
-    private async Task Logout()
-    {
-        LoginStateService.Logout(); 
-        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
-        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
-        
-        NavigationManager.NavigateTo("/");
-
-        StateHasChanged();
-    }
-}
