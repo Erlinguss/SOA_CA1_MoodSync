@@ -10,6 +10,9 @@
 @inject ILocationService LocationService
 @inject IGeoCodingService GeoCodingService
 @inject RecommendationService RecommendationService
+@inject LoginStateService LoginStateService
+
+@inject NavigationManager NavigationManager
 @layout MainLayout
 
 <header>
@@ -19,15 +22,10 @@
     <div class="link-container">
         <a href="/about-us" class="nav-link">About Us</a>
 
-        @if (LoginStateService.IsLoggedIn)
-        {
             <a href="/logout" class="nav-link" @onclick="Logout">Log Out</a>
-        }
-        else
-        {
-            <a href="/login" class="nav-link">Log In</a>
-        }
     </div>
+</header>
+
 
 <section class="input-section">
     <label for="mood">How are you feeling today?</label>
@@ -157,6 +155,21 @@
             recommendationHistory = JsonConvert.DeserializeObject<List<MoodData>>(jsonData);
         }
     }
-}
 
+    protected override void OnInitialized()
+    {
+        LoginStateService.OnChange += StateHasChanged;
+    }
+
+    private async Task Logout()
+    {
+        LoginStateService.Logout();
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+
+        NavigationManager.NavigateTo("/");
+
+        StateHasChanged();
+    }
+}
 

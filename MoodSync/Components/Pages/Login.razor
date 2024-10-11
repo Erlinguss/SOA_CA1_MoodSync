@@ -7,7 +7,7 @@
 @inject IJSRuntime JSRuntime
 @inject ApplicationDbContext DbContext
 @inject LoginStateService LoginStateService
-@layout MainLayout
+
 
 @code {
     private User loginUser = new User();
@@ -32,16 +32,19 @@
     }
 }
 
+<div class="login-container">
 <div class="login-form">
     @if (!string.IsNullOrEmpty(errorMessage))
     {
         <div class="error-message">@errorMessage</div>
     }
     <img src="MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
-    <h2>Login</h2>
+    <h2>Log In</h2>
     <input @bind="loginUser.UserName" placeholder="Username" />
     <input @bind="loginUser.Password" type="password" placeholder="Password" />
     <button @onclick="LoginUser">Login</button>
 
     <p>Don't have an account? <a href="/register">Register here</a></p>
 </div> 
+</div>
+
