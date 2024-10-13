@@ -13,6 +13,9 @@ namespace MoodSync.Models
         [JsonProperty("wind")]
         public WindData Wind { get; set; }
 
+        [JsonProperty("sys")]
+        public SysData Sys { get; set; }
+
         [JsonProperty("weather")]
         public WeatherDescription[] Weather { get; set; }
 
@@ -20,6 +23,15 @@ namespace MoodSync.Models
         {
             [JsonProperty("temp")]
             public double Temperature { get; set; }
+
+            [JsonProperty("feels_like")]
+            public double FeelsLike { get; set; }
+
+            [JsonProperty("temp_min")]
+            public double TempMin { get; set; }
+
+            [JsonProperty("temp_max")]
+            public double TempMax { get; set; }
 
             [JsonProperty("humidity")]
             public int Humidity { get; set; }
@@ -29,12 +41,24 @@ namespace MoodSync.Models
         {
             [JsonProperty("speed")]
             public double Speed { get; set; }
+
+            [JsonProperty("deg")]
+            public int Degree { get; set; }
         }
 
         public class WeatherDescription
         {
             [JsonProperty("description")]
             public string Description { get; set; }
+
+            [JsonProperty("icon")]
+            public string Icon { get; set; }
+        }
+
+        public class SysData
+        {
+            [JsonProperty("country")]
+            public string Country { get; set; }
         }
     }
 }
