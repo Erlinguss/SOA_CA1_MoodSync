@@ -48,18 +48,16 @@
 
 @if (weatherData != null)
 {
-    <section class="weather-section">
-        <div class="weather-content">
-            <div class="weather-text">
-                <h3>Weather in @location</h3>
-                <p>Temperature: @weatherData.Main.Temperature °C</p>
-                <p>Description: @weatherData.Weather[0].Description</p>
-            </div>
-            <div class="weather-image">
-                <img src="weather.png" alt="Weather Icon" />
-            </div>
-        </div>
-    </section>
+        <section class="weather-section">
+            <h3>Weather in @weatherData.City, @weatherData.Sys.Country</h3>
+            <p>Current Temperature: @weatherData.Main.Temperature °C</p>
+            <p>Feels Like: @weatherData.Main.FeelsLike °C</p>
+            <p>Min Temperature: @weatherData.Main.TempMin °C</p>
+            <p>Max Temperature: @weatherData.Main.TempMax °C</p>
+            <p>Humidity: @weatherData.Main.Humidity %</p>
+            <p>Wind Speed: @weatherData.Wind.Speed m/s</p>
+            <p>Weather Description: @weatherData.Weather[0].Description</p>
+        </section>
 }
 
  @if (recommendations != null)
@@ -74,6 +72,20 @@
         </ul>
     </section>
 }
+
+@if (htmlAttributions.Any())
+{
+    <section class="attributions-section">
+        <h3>Attributions:</h3>
+        <ul>
+            @foreach (var attribution in htmlAttributions)
+            {
+                <li>@(new MarkupString(attribution))</li>  
+            }
+        </ul>
+    </section>
+}
+
 <div id="map" class="map-container"></div>
 
 
@@ -179,6 +191,33 @@
         NavigationManager.NavigateTo("/");
 
         StateHasChanged();
+    }
+
+
+    private List<string> htmlAttributions = new List<string>();
+
+    private async Task GetNearbyPlaces()
+    {
+        var nearbyPlacesData = await FetchNearbyPlacesAsync();
+
+        foreach (var place in nearbyPlacesData.Results)
+        {
+            if (place.Photos != null)
+            {
+                foreach (var photo in place.Photos)
+                {
+                    if (photo.HtmlAttributions != null)
+                    {
+                        htmlAttributions.AddRange(photo.HtmlAttributions);
+                    }
+                }
+            }
+        }
+
+        if (nearbyPlacesData.HtmlAttributions != null)
+        {
+            htmlAttributions.AddRange(nearbyPlacesData.HtmlAttributions);
+        }
     }
 }
 
