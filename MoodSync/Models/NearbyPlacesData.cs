@@ -7,6 +7,9 @@ namespace MoodSync.Models
         [JsonProperty("results")]
         public List<Place> Results { get; set; }
 
+        [JsonProperty("html_attributions")]
+        public List<string> HtmlAttributions { get; set; }
+
         public class Place
         {
             [JsonProperty("name")]
@@ -17,6 +20,15 @@ namespace MoodSync.Models
 
             [JsonProperty("types")]
             public List<string> Types { get; set; }
+
+            [JsonProperty("photos")]
+            public List<Photo> Photos { get; set; }
+        }
+
+        public class Photo
+        {
+            [JsonProperty("html_attributions")]
+            public List<string> HtmlAttributions { get; set; }
         }
     }
 }

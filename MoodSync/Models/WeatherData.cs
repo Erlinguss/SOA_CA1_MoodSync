@@ -50,9 +50,6 @@ namespace MoodSync.Models
         {
             [JsonProperty("description")]
             public string Description { get; set; }
-
-            [JsonProperty("icon")]
-            public string Icon { get; set; }
         }
 
         public class SysData
