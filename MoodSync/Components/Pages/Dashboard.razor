@@ -138,7 +138,7 @@
     </section>
 }
 
-
+ 
 @code {
     private Mood? selectedMood = null;
     private string location = "";
@@ -152,53 +152,56 @@
         await base.OnInitializedAsync();
     }
 
-    private async Task GetRecommendations()
+ private async Task GetRecommendations()
+{
+    if (selectedMood != null && !string.IsNullOrEmpty(location))
     {
-        if (selectedMood != null && !string.IsNullOrEmpty(location))
+        recommendations = await RecommendationService.GetRecommendationsAsync(location, (Mood)selectedMood);
+        weatherData = await WeatherService.GetWeatherAsync(location);
+
+        var moodData = new MoodData
         {
-            recommendations = await RecommendationService.GetRecommendationsAsync(location, (Mood)selectedMood);
-            weatherData = await WeatherService.GetWeatherAsync(location);
+            Mood = selectedMood.ToString(),
+            Location = location,
+            Recommendations = recommendations,
+            Timestamp = DateTime.Now
+        };
+        await SaveToFile(moodData);
 
-            var moodData = new MoodData
-                {
-                    Mood = selectedMood.ToString(),
-                    Location = location,
-                    Recommendations = recommendations,
-                    Timestamp = DateTime.Now
-                };
-            await SaveToFile(moodData);
+        var geoData = await GeoCodingService.GetCoordinatesAsync(location);
+        if (geoData != null && geoData.Results.Count > 0)
+        {
+            var latitude = geoData.Results[0].Geometry.Location.Latitude;
+            var longitude = geoData.Results[0].Geometry.Location.Longitude;
 
-            var geoData = await GeoCodingService.GetCoordinatesAsync(location);
-            if (geoData != null && geoData.Results.Count > 0)
-            {
-                var latitude = geoData.Results[0].Geometry.Location.Latitude;
-                var longitude = geoData.Results[0].Geometry.Location.Longitude;
+            var nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(latitude, longitude);
 
-                var nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(latitude, longitude);
+            var filteredPlaces = RecommendationService.FilterPlacesByMood(nearbyPlacesData, (Mood)selectedMood);
 
-                var filteredPlaces = RecommendationService.FilterPlacesByMood(nearbyPlacesData, (Mood)selectedMood);
-
-                var placesJson = nearbyPlacesData.Results
+            var placesJson = nearbyPlacesData.Results
                 .Where(place => filteredPlaces.Contains($"{place.Name} - {place.Vicinity}"))
                 .Select(place => new
                 {
-                     name = place.Name,
-                     vicinity = place.Vicinity,
-                     geometry = new
+                    name = place.Name,
+                    vicinity = place.Vicinity,
+                    geometry = new
                     {
-                      location = new
-                       {
-                         lat = place.Geometry.Location.Latitude,
-                         lng = place.Geometry.Location.Longitude
-                       }
-                    }
-                }).ToList(); 
+                        location = new
+                        {
+                            lat = place.Geometry.Location.Latitude,
+                            lng = place.Geometry.Location.Longitude
+                        }
+                    },
+                    photos = place.Photos != null && place.Photos.Count > 0
+                        ? place.Photos.Select(photo => new { photo_reference = photo.PhotoReference }).ToList()
+                        : null
+                }).ToList();
 
-                await JSRuntime.InvokeVoidAsync("setMapLocation", latitude, longitude, placesJson);
-            }
-            StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("setMapLocation", latitude, longitude, placesJson);
         }
+        StateHasChanged();
     }
+}
 
     private async Task SaveToFile(MoodData moodData)
     {
