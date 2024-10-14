@@ -24,6 +24,8 @@
     </div>
 </header>
 
+<h2>Based on Location and Weather's condition, you wil receive recommentations of what to do</h2>
+
 <section class="input-section">
     <div class="input-container">
         <label for="mood">How are you feeling today?</label>
@@ -42,7 +44,6 @@
     </div>
     <div class="button-section">
         <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
-
     </div>
 </section>
 
@@ -93,22 +94,25 @@
     </section>
 }
 
- @if (recommendations != null)
+@if (recommendations != null)
 {
     <section class="recommendations-section">
         <h3>Recommendations for you:</h3>
-        <ul class="recommendation-list">
+        <div class="recommendation-cards-container">
             @foreach (var recommendation in recommendations)
             {
-                <li>@recommendation</li>
+                <div class="recommendation-card">
+                    <h4>@recommendation</h4>
+                </div>
             }
-        </ul>
+        </div>
     </section>
 }
 
+
 <div id="map" class="map-container"></div>
 
-
+@* 
 @if (recommendationHistory != null)
 {
     <section class="history-section">
@@ -125,7 +129,36 @@
             }
         </ul>
     </section>
+} *@
+
+@if (recommendationHistory != null)
+{
+    <section class="history-section">
+        <h3>Recommendation History</h3>
+        <div class="history-cards-container">
+            @foreach (var entry in recommendationHistory)
+            {
+                <div class="history-card">
+                    <div class="history-card-header">
+                        <span class="mood">@entry.Mood</span>
+                        <span class="location">@entry.Location</span>
+                        <span class="timestamp">@entry.Timestamp.ToString("yyyy-MM-dd HH:mm")</span>
+                    </div>
+                    <div class="history-card-body">
+                        <h4>Recommendations:</h4>
+                        <ul class="recommendations-list">
+                            @foreach (var recommendation in entry.Recommendations)
+                            {
+                                <li>@recommendation</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
 }
+
 
 @code {
     private Mood? selectedMood = null;
