@@ -23,8 +23,25 @@ namespace MoodSync.Models
 
             [JsonProperty("photos")]
             public List<Photo> Photos { get; set; }
+
+           /* [JsonProperty("geometry")]
+            public Geometry Geometry { get; set; }*/
         }
 
+    /*    public class Geometry
+        {
+            [JsonProperty("location")]
+            public LocationCoordinates Location { get; set; }
+        }*/
+
+/*        public class LocationCoordinates
+        {
+            [JsonProperty("lat")]
+            public double Latitude { get; set; }
+
+            [JsonProperty("lng")]
+            public double Longitude { get; set; }
+        }*/
         public class Photo
         {
             [JsonProperty("html_attributions")]

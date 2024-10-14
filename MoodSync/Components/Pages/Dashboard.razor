@@ -12,6 +12,7 @@
 @inject RecommendationService RecommendationService
 @inject LoginStateService LoginStateService
 
+
 @inject NavigationManager NavigationManager
 @layout MainLayout
 
@@ -80,7 +81,7 @@
         <ul>
             @foreach (var attribution in htmlAttributions)
             {
-                <li>@(new MarkupString(attribution))</li>  
+                <li>@(new MarkupString(attribution))</li>
             }
         </ul>
     </section>
@@ -106,8 +107,6 @@
         </ul>
     </section>
 }
-
-
 
 @code {
     private Mood? selectedMood = null;
@@ -196,28 +195,30 @@
 
     private List<string> htmlAttributions = new List<string>();
 
-    private async Task GetNearbyPlaces()
+    private async Task GetNearbyPlaces(double latitude, double longitude)
     {
-        var nearbyPlacesData = await FetchNearbyPlacesAsync();
+        var nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(latitude, longitude);
 
-        foreach (var place in nearbyPlacesData.Results)
+        if (nearbyPlacesData != null)
         {
-            if (place.Photos != null)
+            foreach (var place in nearbyPlacesData.Results)
             {
-                foreach (var photo in place.Photos)
+                if (place.Photos != null)
                 {
-                    if (photo.HtmlAttributions != null)
+                    foreach (var photo in place.Photos)
                     {
-                        htmlAttributions.AddRange(photo.HtmlAttributions);
+                        if (photo.HtmlAttributions != null)
+                        {
+                            htmlAttributions.AddRange(photo.HtmlAttributions);
+                        }
                     }
                 }
             }
-        }
 
-        if (nearbyPlacesData.HtmlAttributions != null)
-        {
-            htmlAttributions.AddRange(nearbyPlacesData.HtmlAttributions);
+            if (nearbyPlacesData.HtmlAttributions != null)
+            {
+                htmlAttributions.AddRange(nearbyPlacesData.HtmlAttributions);
+            }
         }
     }
 }
-
