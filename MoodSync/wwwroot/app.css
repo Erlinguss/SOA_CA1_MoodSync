@@ -330,51 +330,77 @@ column p {
     .secondary-btn:hover {
         background-color: #e67e22;
     }
-
 .weather-section {
-    padding: 20px;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.8));
+    position: relative;
+    padding: 10px;
 }
 
-.weather-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 600px;
+.weather-background {
+    position: relative;
     width: 100%;
+    max-width: 800px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.weather-text {
-    flex: 1;
-    margin-right: 20px;
-}
-
-    .weather-text h3 {
-        font-size: 1.8rem;
-        color: #6a1b9a;
-        margin-bottom: 10px;
-    }
-
-    .weather-text p {
-        font-size: 1.2rem;
-        color: #333;
-    }
-
-.weather-image {
-    flex: 1;
-    max-width: 120px;
-}
-
-    .weather-image img {
+    .weather-background img {
         width: 100%;
         height: auto;
+        filter: brightness(80%);
     }
+
+.weather-details {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+    .weather-details h3 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+.weather-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px;
+}
+
+.weather-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .weather-box p {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .weather-box span {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
 
 .recommendations-section {
     padding: 20px;
@@ -501,3 +527,7 @@ h1, h2 {
     color: purple;
 }
 
+.map-container {
+    width: 100%;
+    height: 400px; 
+}
