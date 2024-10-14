@@ -401,22 +401,147 @@ column p {
         font-weight: bold;
     }
 
-
 .recommendations-section {
     padding: 20px;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f5;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+    .recommendations-section h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+.recommendation-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.recommendation-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%; 
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .recommendation-card h4 {
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .recommendation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+/*
 .history-section {
     padding: 20px;
     background-color: #fff;
     margin: 20px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}*/
+
+.history-section {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
+
+    .history-section h3 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: bold;
+    }
+
+.history-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.history-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 350px;
+    flex: 1 1 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+    .history-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+.history-card-header {
+    background-color: #f0f0f5;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+    .history-card-header .mood {
+        color: #6a1b9a;
+    }
+
+    .history-card-header .location {
+        color: #1b6ec2;
+    }
+
+    .history-card-header .timestamp {
+        font-size: 0.85rem;
+        color: #888;
+    }
+
+.history-card-body {
+    padding: 10px 0;
+}
+
+    .history-card-body h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+.recommendations-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1rem;
+}
+
+    .recommendations-list li {
+        background-color: #f0f0f5;
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+        color: #444;
+    }
+
 
 
 h3 {
