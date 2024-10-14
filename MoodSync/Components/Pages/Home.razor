@@ -12,39 +12,50 @@
 @inject NavigationManager NavigationManager
 @inject LoginStateService LoginStateService
 
+
 <header>
     <div class="logo-container">
         <img src="/Photos/MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
     </div>
     <div class="link-container">
         <a href="/about-us" class="nav-link">About Us</a>
-
         <a href="/login" class="nav-link">Log In</a>
-        
     </div>
 </header>
 
-
 <section class="hero-section">
-    <h1>Personalized Recommendations</h1>
-    <p>Select your mood and location to get personalized recommendations based on the weather and nearby places.</p>
+    <div class="content-wrapper">
+        <div class="text-container">
+            <h1>Personalized Recommendations</h1>
+            <h2>Select your mood and location to get personalized recommendations based on the weather and nearby places.</h2>
+        </div>
+        <div class="image-container">
+            <img src="Photos/background.jpg" alt="background" />
+        </div>
+    </div>
 
-    <section class="info-section">
+    <h3 class="centered-text">MoodSync offer a variaty of services including </h3>
+    <div class="columns-container">
         <div class="column">
-            <img src="Map.jpg" alt="Map" />
+            <h3>Google Map</h3>
+            <img src="Photos/Map.jpg" alt="Map" />
             <p>Explore nearby locations and get recommendations based on your mood and the weather.</p>
         </div>
         <div class="column">
-            <img src="weather.jpg" alt="Weather" />
+            <h3>Weather</h3>
+            <img src="Photos/weather.jpg" alt="Weather" />
             <p>Check the weather for your current location and adjust your plans accordingly.</p>
         </div>
         <div class="column">
-            <img src="Recomendations.png" alt="Recommendations" />
+            <h3>commendations</h3>
+            <img src="Photos/Recomendations.png" alt="Recommendations" />
             <p>Get personalized recommendations tailored to your mood and surroundings.</p>
         </div>
-    </section>
+        <div class="column">
+            <h3>View History</h3>
+            <img src="Photos/ViewHistoy.jpg" alt="ViewHistory" />
+            <p>Check all places visited in previous sessions or have saved for future visit.</p>
+        </div>
+    </div>
 </section>
-
-
-
 

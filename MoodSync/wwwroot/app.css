@@ -55,16 +55,16 @@ a, .btn-link {
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    /*background-color: #f0f0f5;*/
+    background-color: #f0f0f5;
     margin: 0;
     padding: 0;
     display: block;
-  /*  height: 100vh;*/
+    height: 100vh;
 }
 
 
 header {
-    background: linear-gradient(90deg, #8e44ad, #9b59b6);
+    background: linear-gradient(90deg, #6a1b9a, #8e44ad);
     color: white;
     padding: 15px 20px;
     display: flex;
@@ -88,26 +88,6 @@ header {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-}
-
-
-.hero-section {
-    padding: 50px;
-    text-align: center;
-    background-color: #f8f8f8;
-}
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-.input-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
 }
 
 label {
@@ -148,6 +128,7 @@ button.primary-btn {
 
 h1:focus {
     outline: none;
+    color:white;
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -177,56 +158,235 @@ h1:focus {
 }
 
 
-.hero-section {
-    background-image: url('Photos/background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 0;
-    position: relative;
-}
-
-    .hero-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-    }
-
-    .hero-section h1,
-    .hero-section p {
-        position: relative;
-        z-index: 2;
-    }
-
-.info-section {
+.columns-container {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-    padding: 50px 0;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 20px;
+    z-index: 2;
+    position: relative;
 }
 
 .column {
     flex: 1;
     padding: 20px;
+    background: white;
+    border-radius: 15px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0.5, 0.5,0.5, 0.5);
+    transition: transform 0.3s ease;
 }
 
     .column img {
-        width: 250px; 
-        height: 250px; 
-        object-fit: cover; 
+        width: 100%;
+        height: 300px; 
+        object-fit: cover;
         margin-bottom: 15px;
+        border-radius: 10px;
+    }
+    .column:hover {
+        transform: translateY(-10px); 
     }
 
-    .column p {
-        font-size: 1.2em;
-        color: #333;
+
+column p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .columns-container {
+        flex-direction: column;
+        align-items: center;
     }
+
+    .column {
+        max-width: 90%;
+    }
+}
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-small {
+        width: 120px;
+        height: auto;
+    }
+
+    .link-container a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+.column {
+    flex: 1;
+    padding: 20px;
+    max-width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease;
+}
+
+        .column img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-bottom: 2px solid #8e44ad;
+            margin-bottom: 15px;
+        }
+
+        .column:hover {
+            transform: translateY(-10px);
+        }
+
+        .column p {
+            font-size: 1.2em;
+        }
+
+        .column .learn-more-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .column .learn-more-btn:hover {
+                background-color: #9b59b6;
+            }
+
+
+    .input-section {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-box, .dropdown {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .button-section {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .primary-btn {
+        background-color: #6a1b9a;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+        .primary-btn:hover {
+            background-color: #5e17a3;
+        }
+
+    .secondary-btn {
+        background-color: #f39c12;
+        color: white;
+        margin-left: 15px;
+    }
+
+        .secondary-btn:hover {
+            background-color: #e67e22;
+        }
+
+    .weather-section {
+        padding: 20px;
+        background-color: white;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 600px;
+        width: 100%;
+    }
+
+    .weather-text {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+        .weather-text h3 {
+            font-size: 1.8rem;
+            color: #6a1b9a;
+            margin-bottom: 10px;
+        }
+
+        .weather-text p {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+    .weather-image {
+        flex: 1;
+        max-width: 120px;
+    }
+
+        .weather-image img {
+            width: 100%;
+            height: auto;
+        }
+
+    .recommendations-section {
+        padding: 20px;
+        background-color: white;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .history-section {
+        padding: 20px;
+        background-color: #fff;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1rem;
+        color: black;
+    }
+
+h1, h2 {
+    color: white; 
+}
 
 .logo-container {
     display: flex;
@@ -234,7 +394,7 @@ h1:focus {
 }
 
 .logo-small {
-    width: 120px;
+    width: 160px;
     height: auto;
 }
 
@@ -246,171 +406,56 @@ h1:focus {
     font-weight: bold;
 }
 
-.column {
-    flex: 1;
-    padding: 20px;
-    max-width: 300px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
 
-    .column img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-bottom: 2px solid #8e44ad;
-        margin-bottom: 15px;
-    }
-
-    .column:hover {
-        transform: translateY(-10px);
-    }
-
-    .column p {
-        font-size: 1.2em;
-        color: #333;
-    }
-
-    .column .learn-more-btn {
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #8e44ad;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-        .column .learn-more-btn:hover {
-            background-color: #9b59b6;
-        }
-
-
-.input-section {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.input-box, .dropdown {
-    padding: 10px;
-    width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.button-section {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.primary-btn {
-    background-color: #6a1b9a;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-    .primary-btn:hover {
-        background-color: #5e17a3;
-    }
-
-.secondary-btn {
-    background-color: #f39c12;
-    color: white;
-    margin-left: 15px;
-}
-
-    .secondary-btn:hover {
-        background-color: #e67e22;
-    }
-
-.weather-section {
-    padding: 20px;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.weather-content {
+.content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 600px;
+    padding: 20px 50px;
+}
+
+.text-container {
+    flex: 1;
+    text-align: center; 
+}
+
+    .text-container h1 {
+        font-size: 3rem;
+        color: black; 
+    }
+
+    .text-container h2 {
+        font-size: 1.5rem;
+        color: black; 
+        margin-top: 20px;
+    }
+
+.image-container {
+    position: relative;
     width: 100%;
+    height: 80%; 
+    border-radius: 10px;
 }
 
-.weather-text {
-    flex: 1;
-    margin-right: 20px;
-}
-
-    .weather-text h3 {
-        font-size: 1.8rem;
-        color: #6a1b9a;
-        margin-bottom: 10px;
-    }
-
-    .weather-text p {
-        font-size: 1.2rem;
-        color: #333;
-    }
-
-.weather-image {
-    flex: 1;
-    max-width: 120px;
-}
-
-    .weather-image img {
+    .image-container img {
         width: 100%;
-        height: auto;
+        height: 80%;
+        border-radius: 10px;
+        object-fit: cover;
+        position: relative;
+        z-index: 0;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url('Photos/background.jpg');
+        background-size: cover;
     }
 
-.recommendations-section {
-    padding: 20px;
-    background-color: white;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.hero-section {
+    background-color: white; 
+    padding: 50px 0;
 }
 
-.history-section {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.map-container {
-    width: 100%;
-    height: 400px;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h3 {
-    font-size: 1.5rem;
+.centered-text {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 2rem;
     font-weight: bold;
-}
-
-p {
-    font-size: 1rem;
-    color: #333;
 }
