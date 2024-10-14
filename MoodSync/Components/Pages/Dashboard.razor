@@ -19,31 +19,34 @@
         <img src="Photos/MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
     </div>
     <div class="link-container">
-        <a href="/about-us" class="nav-link">About Us</a>
-
-            <a href="/logout" class="nav-link" @onclick="Logout">Log Out</a>
+        <a href="#" class="nav-link" @onclick="ViewHistory" @onclick:preventDefault>View History</a>
+        <a href="/logout" class="nav-link" @onclick="Logout">Log Out</a>
     </div>
 </header>
 
-
 <section class="input-section">
-    <label for="mood">How are you feeling today?</label>
-    <select id="mood" @bind="selectedMood" class="dropdown">
-        <option value="Happy">Happy</option>
-        <option value="Sad">Sad</option>
-        <option value="Stressed">Stressed</option>
-        <option value="Relaxed">Relaxed</option>
-        <option value="Angry">Angry</option>
-    </select>
+    <div class="input-container">
+        <label for="mood">How are you feeling today?</label>
+        <select id="mood" @bind="selectedMood" class="dropdown">
+            <option value="Happy">Happy</option>
+            <option value="Sad">Sad</option>
+            <option value="Stressed">Stressed</option>
+            <option value="Relaxed">Relaxed</option>
+            <option value="Angry">Angry</option>
+        </select>
+    </div>
 
-    <label for="location">Enter your location</label>
-    <input id="location" @bind="location" placeholder="Enter a city or town" class="input-box" />
+    <div class="input-container">
+        <label for="location">Enter your location</label>
+        <input id="location" @bind="location" placeholder="Enter a city or town" class="input-box" />
+    </div>
+    <div class="button-section">
+        <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
+
+    </div>
 </section>
 
-<section class="button-section">
-    <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
-    <button @onclick="ViewHistory" class="primary-btn secondary-btn">View History</button>
-</section>
+
 
 @if (weatherData != null)
 {
@@ -62,12 +65,15 @@
                         <span>@weatherData.Main.FeelsLike °C</span>
                     </div>
                     <div class="weather-box">
-                        <p>Min Temperature</p>
-                        <span>@weatherData.Main.TempMin °C</span>
-                    </div>
-                    <div class="weather-box">
                         <p>Max Temperature</p>
                         <span>@weatherData.Main.TempMax °C</span>
+                    </div>
+                    <div class="weather-box">
+                        <img src="Photos/sun.png" alt="sky" />
+                    </div>
+                    <div class="weather-box">
+                        <p>Min Temperature</p>
+                        <span>@weatherData.Main.TempMin °C</span>
                     </div>
                     <div class="weather-box">
                         <p>Humidity</p>
@@ -78,15 +84,13 @@
                         <span>@weatherData.Wind.Speed m/s</span>
                     </div>
                     <div class="weather-box">
-                        <p>🌤️ Weather Description</p>
+                        <p>🌤️ Status</p>
                         <span>@weatherData.Weather[0].Description</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
 }
 
  @if (recommendations != null)
