@@ -2,6 +2,8 @@
 using MoodSync.Interfaces;
 using MoodSync.Models;
 using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MoodSync.Services
 {
@@ -20,7 +22,6 @@ namespace MoodSync.Services
 
         public async Task<List<string>> GetRecommendationsAsync(string location, Mood mood)
         {
-
             var weatherData = await _weatherService.GetWeatherAsync(location);
             if (weatherData == null)
             {
@@ -45,7 +46,7 @@ namespace MoodSync.Services
             return FilterPlacesByMood(nearbyPlacesData, mood);
         }
 
-        private List<string> FilterPlacesByMood(NearbyPlacesData nearbyPlaces, Mood mood)
+        public List<string> FilterPlacesByMood(NearbyPlacesData nearbyPlaces, Mood mood)
         {
             var filteredRecommendations = new List<string>();
 
@@ -67,44 +68,44 @@ namespace MoodSync.Services
 
 
         private static readonly Dictionary<Mood, List<string>> moodPlaceTypes = new Dictionary<Mood, List<string>>
-{
-    {
-        Mood.Happy, new List<string>
         {
-            "amusement_park", "cafe", "restaurant", "bar", "night_club", "park",
-            "zoo", "aquarium", "movie_theater", "bowling_alley", "casino",
-            "tourist_attraction", "shopping_mall", "establishment"
-        }
-    },
-    {
-        Mood.Sad, new List<string>
-        {
-            "library", "art_gallery", "museum", "church", "book_store", "theater",
-            "cathedral", "planetarium", "point_of_interest"
-        }
-    },
-    {
-        Mood.Stressed, new List<string>
-        {
-            "spa", "yoga_studio", "gym", "nature_reserve", "lake", "botanical_garden",
-            "national_park", "hiking_area", "wellness_center", "lodging"
-        }
-    },
-    {
-        Mood.Relaxed, new List<string>
-        {
-            "park", "beach", "lake", "river", "botanical_garden", "vineyard",
-            "national_park", "resort", "scenic_viewpoint", "tourist_attraction", "point_of_interest"
-        }
-    },
-    {
-        Mood.Angry, new List<string>
-        {
-            "gym", "boxing_gym", "martial_arts_school", "stadium", "rock_climbing_gym",
-            "sports_complex", "kickboxing", "crossfit", "running_track", "lodging"
-        }
-    }
-};
+            {
+                Mood.Happy, new List<string>
+                {
+                    "amusement_park", "cafe", "restaurant", "bar", "night_club", "park",
+                    "zoo", "aquarium", "movie_theater", "bowling_alley", "casino",
+                    "tourist_attraction", "shopping_mall", "establishment"
+                }
+            },
+            {
+                Mood.Sad, new List<string>
+                {
+                    "library", "art_gallery", "museum", "church", "book_store", "theater",
+                    "cathedral", "planetarium", "point_of_interest"
+                }
+            },
+            {
+                Mood.Stressed, new List<string>
+                {
+                    "spa", "yoga_studio", "gym", "nature_reserve", "lake", "botanical_garden",
+                    "national_park", "hiking_area", "wellness_center", "lodging"
+                }
+            },
+            {
+                Mood.Relaxed, new List<string>
+                {
+                    "park", "beach", "lake", "river", "botanical_garden", "vineyard",
+                    "national_park", "resort", "scenic_viewpoint", "tourist_attraction", "point_of_interest"
+                }
+            },
+            {
+                Mood.Angry, new List<string>
+                {
+                    "gym", "boxing_gym", "martial_arts_school", "stadium", "rock_climbing_gym",
+                    "sports_complex", "kickboxing", "crossfit", "running_track", "lodging"
+                }
+            }
+        };
 
         private bool IsPlaceSuitableForMood(NearbyPlacesData.Place place, Mood mood)
         {

@@ -47,8 +47,6 @@
     </div>
 </section>
 
-
-
 @if (weatherData != null)
 {
     <section class="weather-section">
@@ -112,25 +110,6 @@
 
 <div id="map" class="map-container"></div>
 
-@* 
-@if (recommendationHistory != null)
-{
-    <section class="history-section">
-        <h3>Recommendation History</h3>
-        <ul class="history-list">
-            @foreach (var entry in recommendationHistory)
-            {
-                <li>
-                    <strong>Mood:</strong> @entry.Mood,
-                    <strong>Location:</strong> @entry.Location,
-                    <strong>Time:</strong> @entry.Timestamp.ToString("yyyy-MM-ddTHH:mm:ss"),
-                    <strong>Recommendations:</strong> @string.Join(", ", entry.Recommendations)
-                </li>
-            }
-        </ul>
-    </section>
-} *@
-
 @if (recommendationHistory != null)
 {
     <section class="history-section">
@@ -167,6 +146,12 @@
     private WeatherData weatherData;
     private List<MoodData> recommendationHistory;
 
+    protected override async Task OnInitializedAsync()
+    {
+        LoginStateService.OnChange += StateHasChanged;
+        await base.OnInitializedAsync();
+    }
+
     private async Task GetRecommendations()
     {
         if (selectedMood != null && !string.IsNullOrEmpty(location))
@@ -189,8 +174,29 @@
                 var latitude = geoData.Results[0].Geometry.Location.Latitude;
                 var longitude = geoData.Results[0].Geometry.Location.Longitude;
 
-                await JSRuntime.InvokeVoidAsync("setMapLocation", latitude, longitude);
-             }
+                var nearbyPlacesData = await LocationService.GetNearbyPlacesAsync(latitude, longitude);
+
+                var filteredPlaces = RecommendationService.FilterPlacesByMood(nearbyPlacesData, (Mood)selectedMood);
+
+                var placesJson = nearbyPlacesData.Results
+                .Where(place => filteredPlaces.Contains($"{place.Name} - {place.Vicinity}"))
+                .Select(place => new
+                {
+                     name = place.Name,
+                     vicinity = place.Vicinity,
+                     geometry = new
+                    {
+                      location = new
+                       {
+                         lat = place.Geometry.Location.Latitude,
+                         lng = place.Geometry.Location.Longitude
+                       }
+                    }
+                }).ToList(); 
+
+                await JSRuntime.InvokeVoidAsync("setMapLocation", latitude, longitude, placesJson);
+            }
+            StateHasChanged();
         }
     }
 
@@ -228,9 +234,9 @@
         }
     }
 
-    protected override void OnInitialized()
+    public void Dispose()
     {
-        LoginStateService.OnChange += StateHasChanged;
+        LoginStateService.OnChange -= StateHasChanged;
     }
 
     private async Task Logout()
@@ -238,9 +244,7 @@
         LoginStateService.Logout();
         await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
         await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
-
         NavigationManager.NavigateTo("/");
-
         StateHasChanged();
     }
 }

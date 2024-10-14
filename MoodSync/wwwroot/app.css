@@ -40,6 +40,7 @@ a, .btn-link {
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        margin:20px;
     }
 
         .login-form button:hover, .register-form button:hover {
@@ -401,6 +402,9 @@ column p {
         font-weight: bold;
     }
 
+
+
+
 .recommendations-section {
     padding: 20px;
     background-color: #f0f0f5;
@@ -442,15 +446,6 @@ column p {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
-/*
-.history-section {
-    padding: 20px;
-    background-color: #fff;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}*/
 
 .history-section {
     padding: 30px;

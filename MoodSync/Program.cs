@@ -26,7 +26,6 @@ internal class Program
             new MySqlServerVersion(new Version(8, 0, 21))));
 
         builder.Services.AddControllersWithViews();
-
         builder.Services.AddHttpClient();
 
         var app = builder.Build();
