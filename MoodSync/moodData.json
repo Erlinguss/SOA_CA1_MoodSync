@@ -378,5 +378,299 @@
       "The Failte B&B - Main Street, Slane",
       "Rossnaree House & Gardens - Rossnaree, Slane"
     ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "drogheda",
+    "Timestamp": "2024-10-14T23:31:20.8076687+01:00",
+    "Recommendations": [
+      "The Westcourt Hotel - 29 West Street, Drogheda",
+      "Boyne Valley Hotel & Country Club - Dublin Road, Drogheda",
+      "Newgrange Lodge - Staleen Road, Donore",
+      "Orley House - Dublin Road, Drogheda",
+      "The Glenside - Dublin Road, Drogheda",
+      "The D Hotel - Marsh Road, Lagavooren, Drogheda",
+      "Aaron Vale Bed and Breakfast - 85 Ashfield Green, Drogheda",
+      "Newtown Blues GFC - Newfoundwell Road, Drogheda",
+      "Scholars Townhouse Hotel - Scholars Townhouse Hotel, King Street, Drogheda",
+      "WINDSOR LODGE - The, 1, North Road, Drogheda",
+      "Drogheda Townhouse - 72 George's Street, Drogheda",
+      "Spoon and the Stars Hostel - 13 Dublin Road, Drogheda",
+      "Killowen House B&B - Woodgrange, Dublin Rd., Drogheda",
+      "Newgrange - Newgrange, Donore",
+      "Chez Sé - 7 The Cairns, Beaubec, Dublin Road, Drogheda",
+      "Signature Furniture - Drogheda Road, M1 Retail Park",
+      "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda",
+      "Brú na Bóinne - Drogheda"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-14T23:33:03.9280764+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Top Oil Ravendale Service Station - Ravensdale",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk",
+      "Italian Coffee - 20 Sandy Grove, Dundalk",
+      "The Tool Box - Griffith Place, The Laurels, Dundalk",
+      "Smyths Toys Superstores Dundalk - Unit 15, Dundalk Retail Park, Dundalk",
+      "Property Partners Laurence Gunne - 74 Clanbrassil Street, Dundalk",
+      "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
+      "Print Express - Stapleton Mews, The Ramparts, Dundalk"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "california",
+    "Timestamp": "2024-10-14T23:35:12.3716504+01:00",
+    "Recommendations": [
+      "School House Restaurant & Tavern - 1018 South Frankwood Avenue, Sanger",
+      "Harris River Ranch Airport - 20062 East Trimmer Springs Road, Sanger",
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger",
+      "Builders Concrete Inc. - 17125 East Kings Canyon Road, Sanger",
+      "Piedra Branch Library - 25385 East Trimmer Springs Road, Sanger",
+      "Nikolai Designs - 710 Wilderness, Sanger",
+      "Piedra Fire Station - 6185 Elwood Road, Sanger",
+      "Center stage - 2630 Croydon Drive, Sanger",
+      "Aflac Insurance: Jennifer Collins - 844 North Frankwood Avenue, Sanger",
+      "SDA Manufacturing LLC - 28480 Thermal Road, Sanger",
+      "Riverland Farms - 608 South Frankwood Avenue, Sanger",
+      "United States Postal Service - 26284 Pine Flat Road, Piedra",
+      "Johnson Drilling Co - 23489 E East Kings Canyon Road, Reedley",
+      "Sherwood Forest Golf Club - 79 North Frankwood Avenue, Sanger",
+      "Minkler Cash Store - 18243 East Kings Canyon Road, Sanger",
+      "Marechal Vineyards - 1835 North Zediker Avenue, Sanger",
+      "Luffa Gardens - Online Only, 22503 East Kings Canyon Road, Reedley",
+      "Todd's Hardwood Flooring - 4860 North Zediker Avenue, Sanger"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-14T23:36:37.6767451+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-14T23:39:40.0302255+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Top Oil Ravendale Service Station - Ravensdale",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk",
+      "Italian Coffee - 20 Sandy Grove, Dundalk",
+      "The Tool Box - Griffith Place, The Laurels, Dundalk",
+      "Smyths Toys Superstores Dundalk - Unit 15, Dundalk Retail Park, Dundalk",
+      "Property Partners Laurence Gunne - 74 Clanbrassil Street, Dundalk",
+      "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
+      "Print Express - Stapleton Mews, The Ramparts, Dundalk"
+    ]
+  },
+  {
+    "Mood": "Relaxed",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-14T23:41:41.8117244+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Top Oil Ravendale Service Station - Ravensdale",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk",
+      "Italian Coffee - 20 Sandy Grove, Dundalk",
+      "The Tool Box - Griffith Place, The Laurels, Dundalk",
+      "Smyths Toys Superstores Dundalk - Unit 15, Dundalk Retail Park, Dundalk",
+      "Property Partners Laurence Gunne - 74 Clanbrassil Street, Dundalk",
+      "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
+      "Print Express - Stapleton Mews, The Ramparts, Dundalk"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-14T23:49:57.62867+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-14T23:55:20.8367669+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Top Oil Ravendale Service Station - Ravensdale",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk",
+      "Italian Coffee - 20 Sandy Grove, Dundalk",
+      "The Tool Box - Griffith Place, The Laurels, Dundalk",
+      "Smyths Toys Superstores Dundalk - Unit 15, Dundalk Retail Park, Dundalk",
+      "Property Partners Laurence Gunne - 74 Clanbrassil Street, Dundalk",
+      "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
+      "Print Express - Stapleton Mews, The Ramparts, Dundalk"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-15T00:00:44.2191906+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "drogheda",
+    "Timestamp": "2024-10-15T00:02:33.190323+01:00",
+    "Recommendations": [
+      "The Westcourt Hotel - 29 West Street, Drogheda",
+      "Boyne Valley Hotel & Country Club - Dublin Road, Drogheda",
+      "Newgrange Lodge - Staleen Road, Donore",
+      "Orley House - Dublin Road, Drogheda",
+      "The Glenside - Dublin Road, Drogheda",
+      "The D Hotel - Marsh Road, Lagavooren, Drogheda",
+      "Aaron Vale Bed and Breakfast - 85 Ashfield Green, Drogheda",
+      "Scholars Townhouse Hotel - Scholars Townhouse Hotel, King Street, Drogheda",
+      "WINDSOR LODGE - The, 1, North Road, Drogheda",
+      "Drogheda Townhouse - 72 George's Street, Drogheda",
+      "Spoon and the Stars Hostel - 13 Dublin Road, Drogheda",
+      "Killowen House B&B - Woodgrange, Dublin Rd., Drogheda",
+      "Chez Sé - 7 The Cairns, Beaubec, Dublin Road, Drogheda",
+      "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-15T00:03:41.7516283+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-15T00:07:11.3271882+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "california",
+    "Timestamp": "2024-10-15T00:08:24.3585878+01:00",
+    "Recommendations": [
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger"
+    ]
+  },
+  {
+    "Mood": "Happy",
+    "Location": "tehran",
+    "Timestamp": "2024-10-15T00:09:00.4858304+01:00",
+    "Recommendations": [
+      "Mahan Air Headquarter - Tehran Ferdows Azadegan, No. 21 Mahan Air Tower, Karaj Highway",
+      "Ferdos Elementary School - P8FH+5VH تهران، استان تهران،",
+      "Melli Bank - Tehran, District 5, P8FJ+5F9, Ayatollah Kashani Boulevard",
+      "Sepah Bank - Tehran, District 2, P8CR+G9W, 1st Sadeghiyeh Sqaure",
+      "Tiva Company - Tehran Province, Tehran, فلکه دوم صادقیه ، خیابان اعتمادیان، پلاک 27، طبقه دوم، واحد 7، (اعتمادیان)،",
+      "دبستان پسرانه دولتی سعادت - Tehran, Ferdows, P89J+R27, Vali-e-Asr",
+      "Safir Language Academy - Tehran, Ehsangar, No. 1",
+      "Salam Sadeghiyeh Private High School - Tehran, Ferdows, P88P+44M, Jenah Highway",
+      "Zarafshan Gold And Jewelery Institute - Tehran, P8CQ+W7V",
+      "Andisheh Computer - Tehran, Vahadat 4",
+      "Sam Home - Tehran, District 2, P8CP+VRG, Sattar Khan Street",
+      "کلینیک زیبایی باران طب - Tehran, Ferdows, P8CM+8HF, Baqeri Street",
+      "Pandora - Tehran, P8CR+J56",
+      "Daneshfar High School - Tehran, P8CP+GJJ, 19th Street",
+      "رایان پرداز تات - Tehran, P8CP+P96, Jenah Highway",
+      "بانک شهر - Tehran, خيابان محمد علي جناح-جنب تاکسيراني- 100 متر مانده به فلکه دوم صادقيه, Jenah Highway",
+      "Pasargad Bank - Tehran, District 2, P8CR+VJ6, Sattar Khan Street",
+      "Parsmehr Cultural & Art Institute. - Tehran, Ferdows, East Ferdows Boulevard, No. 112"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "drogheda",
+    "Timestamp": "2024-10-15T00:14:41.3211756+01:00",
+    "Recommendations": [
+      "The Westcourt Hotel - 29 West Street, Drogheda",
+      "Boyne Valley Hotel & Country Club - Dublin Road, Drogheda",
+      "Newgrange Lodge - Staleen Road, Donore",
+      "Orley House - Dublin Road, Drogheda",
+      "The Glenside - Dublin Road, Drogheda",
+      "The D Hotel - Marsh Road, Lagavooren, Drogheda",
+      "Aaron Vale Bed and Breakfast - 85 Ashfield Green, Drogheda",
+      "Newtown Blues GFC - Newfoundwell Road, Drogheda",
+      "Scholars Townhouse Hotel - Scholars Townhouse Hotel, King Street, Drogheda",
+      "WINDSOR LODGE - The, 1, North Road, Drogheda",
+      "Drogheda Townhouse - 72 George's Street, Drogheda",
+      "Spoon and the Stars Hostel - 13 Dublin Road, Drogheda",
+      "Killowen House B&B - Woodgrange, Dublin Rd., Drogheda",
+      "Newgrange - Newgrange, Donore",
+      "Chez Sé - 7 The Cairns, Beaubec, Dublin Road, Drogheda",
+      "Signature Furniture - Drogheda Road, M1 Retail Park",
+      "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda",
+      "Brú na Bóinne - Drogheda"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-15T00:16:53.5472639+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Top Oil Ravendale Service Station - Ravensdale",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk",
+      "Italian Coffee - 20 Sandy Grove, Dundalk",
+      "The Tool Box - Griffith Place, The Laurels, Dundalk",
+      "Smyths Toys Superstores Dundalk - Unit 15, Dundalk Retail Park, Dundalk",
+      "Property Partners Laurence Gunne - 74 Clanbrassil Street, Dundalk",
+      "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
+      "Print Express - Stapleton Mews, The Ramparts, Dundalk"
+    ]
   }
 ]
