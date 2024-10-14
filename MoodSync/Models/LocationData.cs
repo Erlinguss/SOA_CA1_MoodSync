@@ -12,6 +12,7 @@ namespace MoodSync.Models
             [JsonProperty("geometry")]
             public Geometry Geometry { get; set; }
         }
+
         public class Geometry
         {
             [JsonProperty("location")]
