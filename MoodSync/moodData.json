@@ -672,5 +672,73 @@
       "Domino's Pizza - Dundalk - Unit 1, Adelphi Centre, The Long Walk, Dundalk",
       "Print Express - Stapleton Mews, The Ramparts, Dundalk"
     ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "california",
+    "Timestamp": "2024-10-15T00:21:15.2911346+01:00",
+    "Recommendations": [
+      "School House Restaurant & Tavern - 1018 South Frankwood Avenue, Sanger",
+      "Harris River Ranch Airport - 20062 East Trimmer Springs Road, Sanger",
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger",
+      "Builders Concrete Inc. - 17125 East Kings Canyon Road, Sanger",
+      "Piedra Branch Library - 25385 East Trimmer Springs Road, Sanger",
+      "Nikolai Designs - 710 Wilderness, Sanger",
+      "Piedra Fire Station - 6185 Elwood Road, Sanger",
+      "Center stage - 2630 Croydon Drive, Sanger",
+      "Aflac Insurance: Jennifer Collins - 844 North Frankwood Avenue, Sanger",
+      "SDA Manufacturing LLC - 28480 Thermal Road, Sanger",
+      "Riverland Farms - 608 South Frankwood Avenue, Sanger",
+      "United States Postal Service - 26284 Pine Flat Road, Piedra",
+      "Johnson Drilling Co - 23489 E East Kings Canyon Road, Reedley",
+      "Sherwood Forest Golf Club - 79 North Frankwood Avenue, Sanger",
+      "Minkler Cash Store - 18243 East Kings Canyon Road, Sanger",
+      "Marechal Vineyards - 1835 North Zediker Avenue, Sanger",
+      "Luffa Gardens - Online Only, 22503 East Kings Canyon Road, Reedley",
+      "Todd's Hardwood Flooring - 4860 North Zediker Avenue, Sanger"
+    ]
+  },
+  {
+    "Mood": "Stressed",
+    "Location": "dundalk",
+    "Timestamp": "2024-10-15T00:21:56.3739524+01:00",
+    "Recommendations": [
+      "Fairways Hotel Dundalk - Dublin Road, Haggardstown, Dundalk",
+      "Imperial Hotel - 95 Park Street, Dundalk",
+      "Fairlawns Bed & Breakfast - Dublin Road, Dundalk",
+      "Glen Gat Guesthouse - The Crescent, Dundalk",
+      "Heritage B&B - Ireland",
+      "Ballymascanlon Hotel & Golf Resort - Carlingford Road (R173, Dundalk",
+      "The Gateway Hotel • Dundalk - Inner Relief Road, Dundalk",
+      "Rosemount B&B - Dublin Road, Dundalk",
+      "Krakow B & B - 190 Árd Easmuinn, Dundalk",
+      "Keernaun House B&B - Dublin Road, Cocklehill",
+      "Mullaharlin Lodge - Mullaharlin Road, Dundalk Road, Dundalk"
+    ]
+  },
+  {
+    "Mood": "Relaxed",
+    "Location": "drogheda",
+    "Timestamp": "2024-10-15T00:22:16.8673258+01:00",
+    "Recommendations": [
+      "The Westcourt Hotel - 29 West Street, Drogheda",
+      "Boyne Valley Hotel & Country Club - Dublin Road, Drogheda",
+      "Newgrange Lodge - Staleen Road, Donore",
+      "Orley House - Dublin Road, Drogheda",
+      "The Glenside - Dublin Road, Drogheda",
+      "The D Hotel - Marsh Road, Lagavooren, Drogheda",
+      "Aaron Vale Bed and Breakfast - 85 Ashfield Green, Drogheda",
+      "Newtown Blues GFC - Newfoundwell Road, Drogheda",
+      "Scholars Townhouse Hotel - Scholars Townhouse Hotel, King Street, Drogheda",
+      "WINDSOR LODGE - The, 1, North Road, Drogheda",
+      "Drogheda Townhouse - 72 George's Street, Drogheda",
+      "Spoon and the Stars Hostel - 13 Dublin Road, Drogheda",
+      "Killowen House B&B - Woodgrange, Dublin Rd., Drogheda",
+      "Newgrange - Newgrange, Donore",
+      "Chez Sé - 7 The Cairns, Beaubec, Dublin Road, Drogheda",
+      "Signature Furniture - Drogheda Road, M1 Retail Park",
+      "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda",
+      "Brú na Bóinne - Drogheda"
+    ]
   }
 ]
