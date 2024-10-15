@@ -19,8 +19,6 @@ internal class Program
         builder.Services.AddScoped<RecommendationService>();
         builder.Services.AddScoped<MoodService>();
         builder.Services.AddScoped<LoginStateService>();
-
-
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
             new MySqlServerVersion(new Version(8, 0, 21))));
@@ -42,7 +40,6 @@ internal class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapDefaultControllerRoute();
-
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();
 
