@@ -24,6 +24,7 @@
     </div>
 </header>
 
+<div class="input-section-container">
     <div class="input-container">
         <label for="mood">How are you feeling today?</label>
         <select id="mood" @bind="selectedMood" class="dropdown">
@@ -33,15 +34,16 @@
             <option value="Relaxed">Relaxed</option>
             <option value="Angry">Angry</option>
         </select>
-    </div>
 
-    <div class="input-container">
         <label for="location">Enter your location</label>
         <input id="location" @bind="location" placeholder="Enter a city or town" class="input-box" />
     </div>
+
     <div class="button-section">
         <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
     </div>
+</div>
+
 
 @if (weatherData != null)
 {
@@ -86,9 +88,13 @@
         </div>
 }
 
-<div class="map-recommendations-container">
-    <div class="recommendation-cards-container @((recommendations != null && recommendations.Any()) ? "show" : "hide")">
-        <h3>Recommendations for you:</h3>
+
+<h5>Recommendations for you based on your mood and the weather</h5>
+
+<div class="map-recommendations-container" >
+    <div class="recommendation-cards-container 
+        @((recommendations != null && recommendations.Any()) ? "show" : "hide")">
+        <h4 >Recommendations for you:</h4>
         @if (recommendations != null)
         {
             @foreach (var recommendation in recommendations)
@@ -99,9 +105,8 @@
             }
         }
     </div>
-
     <div id="map" class="map-container"></div>
-</div>
+</div> 
 
 @if (recommendationHistory != null)
 {
@@ -130,7 +135,8 @@
         </div>
     </section>
 }
-
+<footer>
+</footer>
  
 @code {
     private Mood? selectedMood = null;
