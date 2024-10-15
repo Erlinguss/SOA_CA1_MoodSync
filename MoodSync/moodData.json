@@ -740,5 +740,55 @@
       "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda",
       "Brú na Bóinne - Drogheda"
     ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "dublin",
+    "Timestamp": "2024-10-15T12:25:01.4134446+01:00",
+    "Recommendations": [
+      "The Morgan Hotel - 10-12 Fleet Street, Temple Bar, Dublin",
+      "Temple Bar Inn - 40-47 Fleet Street, Temple Bar, Dublin 2",
+      "The College Green Hotel Dublin, Autograph Collection - At, College Green, Dublin",
+      "The Shelbourne, Autograph Collection - 27 Saint Stephen's Green, Dublin",
+      "Hotel Riu Plaza The Gresham Dublin - 23 O'Connell Street Upper, Dublin",
+      "Anantara The Marker Dublin - Grand Canal Quay, Docklands, Dublin",
+      "Blooms Hotel - 3-6 Anglesea Street, Temple Bar, Dublin 2",
+      "Trinity College Dublin - College Green, Dublin 2",
+      "The Ferryman - 35 Sir John Rogerson's Quay, Grand Canal Dock, Dublin",
+      "Bonnington Dublin - 4 Star Hotel - 9 Swords Road, Whitehall, Dublin 9",
+      "Maldron Hotel Smithfield - Smithfield Market, Smithfield, Dublin",
+      "The Davenport Hotel - 8-10 Merrion Street Lower, Dublin",
+      "Harcourt Hotel - 60 Harcourt Street, Dublin 2",
+      "Hilton Garden Inn Dublin City Centre - Custom House Quay, North Wall, Dublin 1",
+      "Abbey Court Hostel - 29 Bachelors Walk, Dublin",
+      "Maple Hotel Dublin - 75 Gardiner Street Lower, Dublin",
+      "Abrahams Hostel - 82-83 Gardiner Street Lower, Dublin 1",
+      "Maldron Hotel Parnell Square - Parnell Square West, Rotunda, Dublin 1"
+    ]
+  },
+  {
+    "Mood": "Sad",
+    "Location": "california",
+    "Timestamp": "2024-10-15T12:26:22.6326314+01:00",
+    "Recommendations": [
+      "School House Restaurant & Tavern - 1018 South Frankwood Avenue, Sanger",
+      "Harris River Ranch Airport - 20062 East Trimmer Springs Road, Sanger",
+      "Wonder Valley Ranch Resort & Conference Center - 6450 Elwood Road, Sanger",
+      "Builders Concrete Inc. - 17125 East Kings Canyon Road, Sanger",
+      "Piedra Branch Library - 25385 East Trimmer Springs Road, Sanger",
+      "Nikolai Designs - 710 Wilderness, Sanger",
+      "Piedra Fire Station - 6185 Elwood Road, Sanger",
+      "Center stage - 2630 Croydon Drive, Sanger",
+      "Aflac Insurance: Jennifer Collins - 844 North Frankwood Avenue, Sanger",
+      "SDA Manufacturing LLC - 28480 Thermal Road, Sanger",
+      "Riverland Farms - 608 South Frankwood Avenue, Sanger",
+      "United States Postal Service - 26284 Pine Flat Road, Piedra",
+      "Johnson Drilling Co - 23489 E East Kings Canyon Road, Reedley",
+      "Sherwood Forest Golf Club - 79 North Frankwood Avenue, Sanger",
+      "Minkler Cash Store - 18243 East Kings Canyon Road, Sanger",
+      "Marechal Vineyards - 1835 North Zediker Avenue, Sanger",
+      "Luffa Gardens - Online Only, 22503 East Kings Canyon Road, Reedley",
+      "Todd's Hardwood Flooring - 4860 North Zediker Avenue, Sanger"
+    ]
   }
 ]
