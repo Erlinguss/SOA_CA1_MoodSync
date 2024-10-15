@@ -2,30 +2,13 @@
 
 namespace MoodSync.Models
 {
-    public class LocationData
+    public class LocationData : EntityLocation
     {
         [JsonProperty("results")]
         public List<Result> Results { get; set; }
 
-        public class Result
+        public class Result : EntityLocation
         {
-            [JsonProperty("geometry")]
-            public Geometry Geometry { get; set; }
-        }
-
-        public class Geometry
-        {
-            [JsonProperty("location")]
-            public LocationCoordinates Location { get; set; }
-        }
-
-        public class LocationCoordinates
-        {
-            [JsonProperty("lat")]
-            public double Latitude { get; set; }
-
-            [JsonProperty("lng")]
-            public double Longitude { get; set; }
         }
     }
 }
