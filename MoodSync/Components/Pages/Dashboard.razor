@@ -24,7 +24,6 @@
     </div>
 </header>
 
-<section class="input-section">
     <div class="input-container">
         <label for="mood">How are you feeling today?</label>
         <select id="mood" @bind="selectedMood" class="dropdown">
@@ -43,11 +42,9 @@
     <div class="button-section">
         <button @onclick="GetRecommendations" class="primary-btn">Get Recommendations</button>
     </div>
-</section>
 
 @if (weatherData != null)
 {
-    <section class="weather-section">
         <div class="weather-background">
             <img src="Photos/sky.jpg" alt="sky" />
             <div class="weather-details">
@@ -87,26 +84,24 @@
                 </div>
             </div>
         </div>
-    </section>
 }
 
-@if (recommendations != null)
-{
-    <section class="recommendations-section">
+<div class="map-recommendations-container">
+    <div class="recommendation-cards-container @((recommendations != null && recommendations.Any()) ? "show" : "hide")">
         <h3>Recommendations for you:</h3>
-        <div class="recommendation-cards-container">
+        @if (recommendations != null)
+        {
             @foreach (var recommendation in recommendations)
             {
                 <div class="recommendation-card">
                     <h4>@recommendation</h4>
                 </div>
             }
-        </div>
-    </section>
-}
+        }
+    </div>
 
-
-<div id="map" class="map-container"></div>
+    <div id="map" class="map-container"></div>
+</div>
 
 @if (recommendationHistory != null)
 {
