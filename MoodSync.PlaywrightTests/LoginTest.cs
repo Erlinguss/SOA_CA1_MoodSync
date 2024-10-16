@@ -35,6 +35,7 @@ namespace MoodSync.PlaywrightTests
             await page.WaitForURLAsync("**/dashboard");
             var locationLabel = await page.Locator("label[for='location']").TextContentAsync();
             Assert.That(locationLabel, Is.EqualTo("Enter your location"));
+            await page.WaitForTimeoutAsync(1500);
         }
     }
 }
