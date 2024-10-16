@@ -25,7 +25,7 @@ namespace MoodSync.Services
             var weatherData = await _weatherService.GetWeatherAsync(location);
             if (weatherData == null)
             {
-                return new List<string> { "No weather data available." };
+                return new List<string> { "No weather and recommendation data available. Try Again!" };
             }
 
             var geocodeData = await _geocodingService.GetCoordinatesAsync(location);
