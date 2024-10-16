@@ -44,8 +44,7 @@ namespace MoodSync.PlaywrightTests
             var suggestedTodayHeading = page.Locator("h6:text-is('Suggested today:')");
             var isHeadingVisible = await suggestedTodayHeading.IsVisibleAsync();
 
-            Assert.IsTrue(isHeadingVisible, "The heading 'Suggested today:' should be visible.");
-
+            Assert.IsTrue(isHeadingVisible, "The heading 'Suggested today:'is visible.");
             await page.WaitForTimeoutAsync(2000);
             await browser.CloseAsync();
         }
