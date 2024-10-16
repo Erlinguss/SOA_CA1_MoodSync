@@ -1,4 +1,5 @@
 using Microsoft.Playwright;
+using System.Text.RegularExpressions;
 
 namespace MoodSync.PlaywrightTests
 {
@@ -20,19 +21,20 @@ namespace MoodSync.PlaywrightTests
 
             var  page = await browser.NewPageAsync();
             await page.GotoAsync("https://localhost:7121");
-            await page.WaitForTimeoutAsync(3000);
-            await page.ClickAsync("Text=Log In");
             await page.WaitForTimeoutAsync(2000);
-         
-            await page.FillAsync("#username", "user");
-            await page.FillAsync("#password", "user123");
-        
+            var login = page.Locator("a.nav-link:text('Log In')");
+
+            await login.IsVisibleAsync();
+            await login.ClickAsync();
+            await page.WaitForTimeoutAsync(2000);
+
+            await page.FillAsync("input[placeholder='Username']", "user");
+            await page.FillAsync("input[placeholder='Password']", "user123");
             await page.ClickAsync("text=Login");
 
             await page.WaitForURLAsync("**/dashboard");
-            var title = page.GetByText("Get Recommendation");
-
-            Assert.Equals("Get Recommendation",title);
+            var locationLabel = await page.Locator("label[for='location']").TextContentAsync();
+            Assert.That(locationLabel, Is.EqualTo("Enter your location"));
         }
     }
 }

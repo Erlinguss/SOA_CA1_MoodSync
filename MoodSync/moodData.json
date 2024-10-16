@@ -804,5 +804,55 @@
       "Copperwood drogheda - Donore Road, 2 copperwood, Drogheda",
       "Brú na Bóinne - Drogheda"
     ]
+  },
+  {
+    "Mood": "Happy",
+    "Location": "Dublin",
+    "Timestamp": "2024-10-16T03:48:02.4498038+01:00",
+    "Recommendations": [
+      "The Morgan Hotel - 10-12 Fleet Street, Temple Bar, Dublin",
+      "Temple Bar Inn - 40-47 Fleet Street, Temple Bar, Dublin 2",
+      "The College Green Hotel Dublin, Autograph Collection - At, College Green, Dublin",
+      "The Shelbourne, Autograph Collection - 27 Saint Stephen's Green, Dublin",
+      "Hotel Riu Plaza The Gresham Dublin - 23 O'Connell Street Upper, Dublin",
+      "Anantara The Marker Dublin - Grand Canal Quay, Docklands, Dublin",
+      "Blooms Hotel - 3-6 Anglesea Street, Temple Bar, Dublin 2",
+      "Trinity College Dublin - College Green, Dublin 2",
+      "The Ferryman - 35 Sir John Rogerson's Quay, Grand Canal Dock, Dublin",
+      "Bonnington Dublin - 4 Star Hotel - 9 Swords Road, Whitehall, Dublin 9",
+      "Maldron Hotel Smithfield - Smithfield Market, Smithfield, Dublin",
+      "The Davenport Hotel - 8-10 Merrion Street Lower, Dublin",
+      "Harcourt Hotel - 60 Harcourt Street, Dublin 2",
+      "Hilton Garden Inn Dublin City Centre - Custom House Quay, North Wall, Dublin 1",
+      "Abbey Court Hostel - 29 Bachelors Walk, Dublin",
+      "Maple Hotel Dublin - 75 Gardiner Street Lower, Dublin",
+      "Abrahams Hostel - 82-83 Gardiner Street Lower, Dublin 1",
+      "Maldron Hotel Parnell Square - Parnell Square West, Rotunda, Dublin 1"
+    ]
+  },
+  {
+    "Mood": "Happy",
+    "Location": "Dublin",
+    "Timestamp": "2024-10-16T03:52:06.0351609+01:00",
+    "Recommendations": [
+      "The Morgan Hotel - 10-12 Fleet Street, Temple Bar, Dublin",
+      "Temple Bar Inn - 40-47 Fleet Street, Temple Bar, Dublin 2",
+      "The College Green Hotel Dublin, Autograph Collection - At, College Green, Dublin",
+      "The Shelbourne, Autograph Collection - 27 Saint Stephen's Green, Dublin",
+      "Hotel Riu Plaza The Gresham Dublin - 23 O'Connell Street Upper, Dublin",
+      "Blooms Hotel - 3-6 Anglesea Street, Temple Bar, Dublin 2",
+      "Trinity College Dublin - College Green, Dublin 2",
+      "Anantara The Marker Dublin - Grand Canal Quay, Docklands, Dublin",
+      "The Ferryman - 35 Sir John Rogerson's Quay, Grand Canal Dock, Dublin",
+      "Maldron Hotel Smithfield - Smithfield Market, Smithfield, Dublin",
+      "The Davenport Hotel - 8-10 Merrion Street Lower, Dublin",
+      "Hilton Garden Inn Dublin City Centre - Custom House Quay, North Wall, Dublin 1",
+      "Abbey Court Hostel - 29 Bachelors Walk, Dublin",
+      "Maple Hotel Dublin - 75 Gardiner Street Lower, Dublin",
+      "Abrahams Hostel - 82-83 Gardiner Street Lower, Dublin 1",
+      "Maldron Hotel Parnell Square - Parnell Square West, Rotunda, Dublin 1",
+      "The Trinity City Hotel - Pearse Street, Dublin 2",
+      "The Spencer Hotel - Excise Walk, International Financial Services Centre, Dublin 1"
+    ]
   }
 ]
