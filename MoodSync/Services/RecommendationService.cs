@@ -123,3 +123,9 @@ namespace MoodSync.Services
         }
     }
 }
+
+
+/*
+The approach for handling asynchronous HTTP requests was adapted from a discussion on sending HTTP POST requests in .NET:
+Refererence: Stack Overflow. (2010). Send HTTP POST request in .NET. Retrieved from https://stackoverflow.com/questions/4015324/send-http-post-request-in-net. Accessed [07/10/2024].
+*/

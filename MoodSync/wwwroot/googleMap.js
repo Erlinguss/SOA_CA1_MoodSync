@@ -51,3 +51,8 @@ function setMapLocation(latitude, longitude, placesJson = [], htmlAttributions =
         console.log("No places to display.");
     }
 }
+
+  /*
+  This implementation uses the Google Maps JavaScript API and it was adapted for the specific requirements of this project.
+  Reference: Google Maps JavaScript API. Google Developers. Available at: https://developers.google.com/maps/documentation/javascript/overview. Accessed [09/10/2024].
+ */
