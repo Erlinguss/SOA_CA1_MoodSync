@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoodSync", "MoodSync\MoodSync.csproj", "{664A88D2-3233-4C85-A3C5-2392642C776E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoodSync.PlaywrightTests", "MoodSync.PlaywrightTests\MoodSync.PlaywrightTests.csproj", "{BDA4B2CC-F4BD-48DF-A4A7-BB00A58DABB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MoodSync.PlaywrightTests", "MoodSync.PlaywrightTests\MoodSync.PlaywrightTests.csproj", "{BDA4B2CC-F4BD-48DF-A4A7-BB00A58DABB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
