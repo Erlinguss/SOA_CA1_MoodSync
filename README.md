@@ -18,11 +18,12 @@ MoodSync is a web application Personalized Mental Wellness & Lifestyle Assistant
     <li>Google Cloud API keys for Maps, Places, and Geocoding</li>
     <li>Openweathermap key for weather description.</li>
     <li>Internet access for accessing third-party services</li>
+    <li>XAMPP for running the MySQL database</li>
 </ul>
 
 <h2 style="color: #005fcb; font-size: 30px; border-bottom: 2px solid #007aff;">Setup</h2>
 <ol style="padding-left: 20px;">
-    <li>Install XAMPP</li>
+    <li>Install XAMPP and start the Apache and MySQL modules.</li>
     <li>Clone Repository</li>
     <li>Install required packages using the following commands in Visual Studio 2022:
         <pre><code>
@@ -32,7 +33,7 @@ dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore
 dotnet add package Microsoft.Playwright
         </code></pre>
     </li>
-    <li>Setup your "appsetting.json with the required API keys
+    <li>Setup your "appsetting.json" with the required API keys:
         <pre><code>
 {
     "GoogleAPIKey": "your-google-api-key",
@@ -45,11 +46,19 @@ dotnet add package Microsoft.Playwright
 npx playwright install
         </code></pre>
     </li>
+    <li>Set up the Database:
+        <ol style="padding-left: 20px;">
+            <li>Open XAMPP and start the MySQL service.</li>
+            <li>Open your browser and navigate to <code>http://localhost/phpmyadmin</code>.</li>
+            <li>Create a new database named "MoodSyncDB".</li>
+            <li>Import the `MoodSyncDB.sql` file located in the project directory into the database. This will set up all the necessary tables and initial data.</li>
+        </ol>
+    </li>
 </ol>
 
 <h2 style="color: #005fcb; font-size: 30px; border-bottom: 2px solid #007aff;">Running the Application</h2>
 <p style="text-align: justify;">
-1. Ensure XAMPP is installed and running.<br>
+1. Ensure XAMPP is installed and running with Apache and MySQL services active.<br>
 2. Start the project using Visual Studio or <code>dotnet run</code>.<br>
 3. Access the application on <code>https://localhost:7121</code>.
 </p>
