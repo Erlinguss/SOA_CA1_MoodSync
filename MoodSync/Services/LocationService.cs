@@ -6,11 +6,14 @@ namespace MoodSync.Services
     public class LocationService : ILocationService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U";
+        private readonly string _apiKey;
 
-        public LocationService(HttpClient httpClient)
+        public LocationService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _apiKey = configuration["ApiKeys:GoogleMapsApiKey"]
+               ?? throw new ArgumentNullException(nameof(_apiKey), "Google nearby API key is missing in the configuration.");
+
         }
 
         public async Task<NearbyPlacesData> GetNearbyPlacesAsync(double latitude, double longitude)

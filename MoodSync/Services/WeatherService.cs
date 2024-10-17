@@ -8,11 +8,13 @@ namespace MoodSync.Services
     public class WeatherService : IWeatherService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "dd991d8d30b152dd4933258672b85628";
+        private readonly string _apiKey;
 
-        public WeatherService(HttpClient httpClient)
+        public WeatherService(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _apiKey = configuration["ApiKeys:OpenWeatherApiKey"]
+             ?? throw new ArgumentNullException(nameof(_apiKey), " Weather API key is missing in the configuration.");
         }
 
         public async Task<WeatherData> GetWeatherAsync(string location)
