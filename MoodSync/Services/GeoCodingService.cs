@@ -7,11 +7,15 @@ namespace MoodSync.Services
     public class GeoCodingService : IGeoCodingService
     {
         private readonly HttpClient _httpClient;
-        private readonly string _apiKey = "AIzaSyAARniUO27XBpmFtefiEDN2e9twJs4Tb0U";
+        private readonly string _apiKey;
 
-        public GeoCodingService(HttpClient httpClient)
+        public GeoCodingService(HttpClient httpClient,
+                                IConfiguration configuration)
         {
             _httpClient = httpClient;
+            _apiKey = configuration["ApiKeys:GoogleMapsApiKey"]
+                     ?? throw new ArgumentNullException(nameof(_apiKey), "Google Map API key is missing in the configuration.");
+
         }
 
         public async Task<LocationData> GetCoordinatesAsync(string location)
