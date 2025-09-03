@@ -1,7 +1,76 @@
 ﻿@page "/"
+@inject IJSRuntime JSRuntime
+@using MoodSync.Enums
+@using MoodSync.Interfaces
+@using MoodSync.Models
+@using MoodSync.Services
+@using Newtonsoft.Json
+@inject IWeatherService WeatherService
+@inject ILocationService LocationService
+@inject IGeoCodingService GeoCodingService
+@inject RecommendationService RecommendationService
+@inject NavigationManager NavigationManager
+@inject LoginStateService LoginStateService
 
-<PageTitle>Home</PageTitle>
+<header>
+    <div class="logo-container">
+        <img src="/Photos/MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
+    </div>
+    <div class="link-container">
+        <a href="#google-map" class="nav-link">About Us</a>    
+        <a href="/login" class="nav-link">Log In</a>
+    </div>
+</header>
 
-<h1>Hello, world!</h1>
+    <div class="content-wrapper">
+        <div class="text-container">
+            <h2>Personalized Recommendations</h2>
+            <img src="Photos/Fauget.png" alt="Fauget" />
+            <h2>Select your mood and location to get personalized recommendations based on the weather and nearby places.</h2>
+        <div class="log-container">
+            <a href="/login" class="log-button">Explore More</a>
+        </div>
+        </div>
+        <div class="image-container">
+            <img src="Photos/background.jpg" alt="background" />
+        </div>
+    </div>
 
-Welcome to your new app.
+
+    <h3 class="centered-text">MoodSync offer a variety of services including </h3>
+    <div class="columns-container">
+        <div class="column">
+            <h3 id="google-map">Google Map</h3>
+            <img src="Photos/Map.jpg" alt="Map" />
+            <p>Explore nearby locations and get recommendations based on your mood and the weather.</p>
+        </div>
+        <div class="column">
+            <h3>Weather</h3>
+            <img src="Photos/weather.jpg" alt="Weather" />
+            <p>Check the weather for your current location and adjust your plans accordingly.</p>
+        </div>
+        <div class="column">
+            <h3>Recommendations</h3>
+            <img src="Photos/Recomendations.png" alt="Recommendations" />
+            <p>Get personalized recommendations tailored to your mood and surroundings.</p>
+        </div>
+        <div class="column">
+            <h3>View History</h3>
+            <img src="Photos/ViewHistoy.jpg" alt="ViewHistory" />
+            <p>Check all places visited in previous sessions or have saved for future visit.</p>
+        </div>
+    </div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 MoodSync. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Terms of Service</a>
+            <span>|</span>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</footer>
+

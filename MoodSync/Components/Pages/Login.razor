@@ -1,0 +1,63 @@
+﻿@page "/login"
+@using Microsoft.EntityFrameworkCore
+@using MoodSync.Components.Layout
+@using MoodSync.Data
+@using MoodSync.Models
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@inject ApplicationDbContext DbContext
+@inject LoginStateService LoginStateService
+
+@code {
+    private User loginUser = new User();
+    private string errorMessage;
+
+    private async Task LoginUser()
+    {
+        try
+        {
+            var existingUser = await DbContext.Users
+                .FirstOrDefaultAsync(u => u.UserName == loginUser.UserName);
+
+            if (existingUser == null)
+            {
+                errorMessage = "Invalid username or password!";
+                return;
+            }
+            if (existingUser.Password != loginUser.Password)
+            {
+                errorMessage = "Invalid username or password!";
+                return;
+            }
+            errorMessage = string.Empty;
+
+            LoginStateService.Login();
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "isLoggedIn", "true");
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "username", loginUser.UserName);
+
+            NavigationManager.NavigateTo("/dashboard");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "An unexpected error occurred. Please try again later.";
+            Console.WriteLine($"Error during login: {ex.Message}");
+        }
+    }
+}
+
+<div class="login-container">
+<div class="login-form">
+    <img src="Photos/MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
+    <h2>Log In</h2>
+    <input @bind="loginUser.UserName" placeholder="Username" />
+    <input @bind="loginUser.Password" type="password" placeholder="Password" />
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="error-message">@errorMessage</div>
+    }
+    <button @onclick="LoginUser">Login</button>
+
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+</div> 
+</div>
+

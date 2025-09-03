@@ -1,0 +1,63 @@
+﻿@page "/register"
+@using Microsoft.EntityFrameworkCore
+@using MoodSync.Components.Layout
+@using MoodSync.Data
+@using MoodSync.Models
+@inject ApplicationDbContext DbContext
+@inject NavigationManager NavigationManager
+@layout MainLayout
+
+@code {
+    private User newUser = new User();
+    private string errorMessage;
+
+    private async Task RegisterUser()
+    {
+        try
+        {
+            var existingUser = await DbContext.Users
+                .FirstOrDefaultAsync(u => u.UserName == newUser.UserName);
+
+            if (existingUser != null)
+            {
+                errorMessage = "Username already exists!";
+                return;
+            }
+
+            var existingEmail = await DbContext.Users
+              .FirstOrDefaultAsync(u => u.Email == newUser.Email);
+
+            if (existingEmail != null)
+            {
+                errorMessage = "Email already registered!";
+                return;
+            }
+
+            DbContext.Users.Add(newUser);
+            await DbContext.SaveChangesAsync();
+
+            NavigationManager.NavigateTo("/login");
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+    }
+}
+
+<div class="login-container">
+ <div class="register-form">
+
+    <img src="Photos/MoodLogo.png" alt="Mood Sync Logo" class="logo-small" />
+
+    <h2>Register</h2>
+    <input @bind="newUser.UserName" placeholder="Username" />
+    <input @bind="newUser.Password" type="password" placeholder="Password" />
+    <input @bind="newUser.Email" placeholder="Email" />
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="error-message">@errorMessage</div>
+        }
+    <button @onclick="RegisterUser">Register</button>
+</div>
+</div>

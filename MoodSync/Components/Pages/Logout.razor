@@ -1,0 +1,17 @@
+﻿@page "/logout"
+@using MoodSync.Components.Layout
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+@layout MainLayout
+
+@code {
+    private async Task LogoutUser()
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "isLoggedIn");
+        await JSRuntime.InvokeVoidAsync("localStorage.removeItem", "username");
+
+        NavigationManager.NavigateTo("/");
+    }
+}
+
+<h3>You have been logged out</h3>
